@@ -5,11 +5,42 @@
     <title>DSD_POS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/fontawesome/css/all.css" rel="stylesheet">
+    <style>
+        #formFrame{
+            position: relative;
+            margin: auto;
+            top: 70px;
+        }
+        #SearchFormFrame{
+            position: relative;
+            margin: auto;
+            top: 70px;
+        }
+        #tableFrame{
+            position: relative;
+            margin: auto;
+            top: 90px;
 
+        }
+        .f1{
+            padding-top: 20px;
+        }
+        .f2{
+            padding-top: 30px;
+        }
+        .btn1{
+            margin-top: 10px;
+        }
+        .btn2{
+            margin: 30px 10px 0 25px;
+        }
+
+    </style>
 </head>
 <body>
 <main class="container-fluid">
-    <nav id="nav" class="navbar navbar-expand-lg navbar-light container-fluid fixed-top" style="background-color: #161B36;">
+    <nav id="nav" class="navbar navbar-expand-lg navbar-light container-fluid fixed-top shadow-lg" style="background-color: #161B36;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="color: #E74C3C;">DSD POS System</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +61,74 @@
             </div>
         </div>
     </nav>
+<section class="row">
+    <div id="formFrame" class="col-5" >
+        <div class="badge text-wrap col-12" style="background-color: #E74C3C">
+            Add New Customer
+        </div>
+        <div class="f1 "><input class="form-control form-control-sm" type="text" placeholder="NIC" aria-label=".form-control-sm example"></div>
+        <div class="f1 "><input class="form-control form-control-sm" type="text" placeholder="Name" aria-label=".form-control-sm example"></div>
+        <div class="f1 "> <input class="form-control form-control-sm" type="text" placeholder="Address" aria-label=".form-control-sm example"></div>
+        <div class="f1 "> <input class="form-control form-control-sm" type="text" placeholder="Contact" aria-label=".form-control-sm example"></div>
+        <button type="button" class="btn1 btn btn-success col-12">SAVE</button>
+    </div >
+
+    <div id="SearchFormFrame" class="col-5">
+        <div class="badge text-wrap col-12" style="background-color: #E74C3C">
+            Update Customer
+        </div>
+        <div class="f2 "><input class="form-control form-control-sm" type="text" placeholder="Name" aria-label=".form-control-sm example"></div>
+        <div class="f2 "> <input class="form-control form-control-sm" type="text" placeholder="Address" aria-label=".form-control-sm example"></div>
+        <div class="f2 "> <input class="form-control form-control-sm" type="text" placeholder="Contact" aria-label=".form-control-sm example"></div>
+        <button type="button" class=" btn2 btn btn-primary col-5">UPDATE</button>
+        <button type="button" class="btn2 btn btn-danger col-5">DELETE</button>
+    </div>
+</section>
+
+<section id="tableFrame" class="row col-11 justify-content-center">
+    <table class="table table-striped table-hover ">
+        <thead style="background-color: #242C54;color: white">
+        <tr>
+            <th scope="col">NIC</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry the Bird</td>
+            <td>Thornton</td>
+            <td>@twitter</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Larry the Bird</td>
+            <td>Larry the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td>Larry the Bird</td>
+            <td>Larry the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
 </main>
 
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
