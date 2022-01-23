@@ -11,7 +11,7 @@
         #formFrame {
             position: relative;
             margin: auto;
-            top: 70px;
+            top: 60px;
         }
         #logoutIcon{
             color: white;!important;
@@ -19,7 +19,7 @@
         #SearchFormFrame {
             position: relative;
             margin: auto;
-            top: 70px;
+            top: 60px;
         }
 
         #tableFrame {
@@ -34,16 +34,16 @@
         }
 
         .f2 {
-            padding-top: 30px;
+            padding-top: 20px;
         }
 
-        .btn1 {
+        .btn1,.btn2 {
             margin-top: 10px;
         }
 
-        .btn2 {
-            margin: 30px 10px 0 25px;
-        }
+        /*.btn2 {*/
+        /*    margin: 30px 10px 0 25px;*/
+        /*}*/
 
     </style>
 </head>
@@ -52,7 +52,7 @@
     <!--    nav   -->
     <nav class="navbar navbar-expand-lg navbar-light container-fluid fixed-top shadow-lg" id="nav"
          style="background-color: #161B36;">
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <a class="navbar-brand" href="#" style="color: #E74C3C;">DSD POS System</a>
             <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
                     data-bs-target="#navbarNavDropdown" data-bs-toggle="collapse" type="button">
@@ -78,10 +78,10 @@
     </nav>
     <!--1st row-->
     <section class="row">
-        <div class="col-5" id="formFrame">
-<!--            <div class="badge text-wrap col-12" style="background-color: #E74C3C">-->
-<!--                Add New Customer-->
-<!--            </div>-->
+        <div class="col-11 col-lg-5" id="formFrame">
+            <div class="badge text-wrap col-12" style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
+                Add New Customer
+            </div>
             <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm" placeholder="NIC"
                                     type="text"></div>
             <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm" placeholder="Name"
@@ -93,18 +93,18 @@
             <button class="btn1 btn btn-success col-12" type="button"><i class="fas fa-save"></i>    SAVE </button>
         </div>
 
-        <div class="col-5" id="SearchFormFrame">
-<!--            <div class="badge text-wrap col-12" style="background-color: #E74C3C">-->
-<!--                Update Customer-->
-<!--            </div>-->
-            <div class="f2 "><input aria-label=".form-control-sm example" class="form-control form-control-sm" placeholder="Name"
+        <div class="col-11 col-lg-5" id="SearchFormFrame">
+            <div class="badge text-wrap col-12" style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
+                Update Customer
+            </div>
+            <div class="f2 "><input aria-label=".form-control-sm example" class="form-control form-control-sm" placeholder="Select Customer from the table"
                                     type="text"></div>
-            <div class="f2 "><input aria-label=".form-control-sm example" class="form-control form-control-sm" placeholder="Address"
+            <div class="f2 "><input aria-label=".form-control-sm example" class="form-control form-control-sm" placeholder=""
                                     type="text"></div>
-            <div class="f2 "><input aria-label=".form-control-sm example" class="form-control form-control-sm" placeholder="Contact"
+            <div class="f2 "><input aria-label=".form-control-sm example" class="form-control form-control-sm" placeholder=""
                                     type="text"></div>
-            <button class=" btn2 btn btn-primary col-5" type="button"><i class="fas fa-edit"></i>   UPDATE</button>
-            <button class="btn2 btn btn-danger col-5" type="button"><i class="fas fa-trash-alt"></i>   DELETE </button>
+            <button class=" btn2 btn btn-primary col-12 " type="button"><i class="fas fa-edit"></i>   UPDATE</button>
+            <button class="btn2 btn btn-danger col-12  "  type="button"><i class="fas fa-trash-alt"></i>   DELETE </button>
         </div>
     </section>
 
