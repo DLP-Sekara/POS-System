@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DOM_Manipulation.iml" filepath="$PROJECT_DIR$/DOM_Manipulation.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSD_POS.iml" filepath="$PROJECT_DIR$/DSD_POS.iml" />
     </modules>
   </component>
