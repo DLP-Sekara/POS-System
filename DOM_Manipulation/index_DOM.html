@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Institute of Software Engineering</h1>
+<h2 id="2ndTitle">GDSE</h2>
+<h3 class="3rdTitle">Panadura & Galle</h3>
+<p id="text1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eos omnis vel. Accusamus assumenda distinctio
+  dolorum eos et illo itaque iusto molestiae nobis nulla, porro possimus quidem saepe voluptates voluptatum!</p>
+<hr>
+<input placeholder="Input Something" type="text">
+<button id="btn1">Test</button>
+<button id="btn2">SetIMG</button>
+<button id="btn3">setUL</button>
+<ul class="List">
+    <li>aaaa</li>
+    <li>bbbb</li>
+    <li>cccc</li>
+</ul>
+<img id="img1"  alt="" src="" width="300px">
+<script>
+document.getElementsByTagName("h1")[0].innerText="Hello java";
+document.getElementsByTagName("h1")[0].style.fontSize="50px";
+document.getElementById("2ndTitle").innerText="ijse";
+document.getElementsByClassName("3rdTitle")[0].style.color="red";
+document.getElementById("text1").style.backgroundColor="red";
+document.getElementById("text1").style.color="white";
+//document.querySelector("input").value="c001";
+document.getElementById("btn1").addEventListener("click",function () {
+    document.getElementById("2ndTitle").remove();
+
+    document.getElementsByTagName("h1")[0].innerText=document.querySelector("input").value;
+})
+
+document.getElementById("btn2").addEventListener("click",function () {
+    document.getElementById("img1").setAttribute("src",document.querySelector("input").value);
+})
+document.getElementById("btn3").addEventListener("click",function () {
+    document.querySelector("ul").innerHTML+="<li>"+document.querySelector("input").value+"</li>";
+})
+</script>
+</body>
+</html>
