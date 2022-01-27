@@ -107,6 +107,7 @@
     </nav>
 
     <!--=====================================customerPage=============================================-->
+    <section id="1stPage">
     <!--1st row-->
     <section class="row">
         <div class="col-11 col-lg-5" id="formFrame1">
@@ -190,7 +191,7 @@
             </tbody>
         </table>
     </section>
-
+    </section>
     <!--=====================================ItemPage=============================================-->
     <!--1st row-->
     <section id="2ndPage">
@@ -448,8 +449,19 @@
 </main>
 <script>
     document.getElementById("customerBTN").addEventListener("click", function () {
+        document.getElementById("1stPage").style.display="block";
         document.getElementById("2ndPage").style.display="none";
         document.getElementById("3rdPage").style.display="none";
+    })
+    document.getElementById("itemBTN").addEventListener("click", function () {
+        document.getElementById("1stPage").style.display="none";
+        document.getElementById("2ndPage").style.display="block";
+        document.getElementById("3rdPage").style.display="none";
+    })
+    document.getElementById("orderBTN").addEventListener("click", function () {
+        document.getElementById("1stPage").style.display="none";
+        document.getElementById("2ndPage").style.display="none";
+        document.getElementById("3rdPage").style.display="block";
     })
 </script>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
