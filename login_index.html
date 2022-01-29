@@ -30,12 +30,30 @@
        }
        #username,#password,#loginBtn{
            position: relative;
-           top: 100px;
+           top: 60px;
            margin: auto;
        }
       #loginBtn{
           left: 33px;
           top: 130px;
+      }
+      #loginName{
+          position: relative;
+          top: 20px;
+          /*left: 0;*/
+          /*right: 0;*/
+          /*margin: auto;*/
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      #ForgotPassword{
+          top: 56px;
+          left: 34px;
+          color: blue;
+          font-size: 13px;
+          position: relative;
+          cursor: pointer;
       }
     </style>
 </head>
@@ -43,7 +61,8 @@
 <main class="container-fluid">
     <!--1st row-->
     <div class="fixed-top">
-        <div class="login">
+        <div class="login col-sm-6">
+            <h1 id="loginName">LOGIN</h1>
             <div id="username" class="mb-3 col-10">
                 <label for="formGroupExampleInput" class="form-label"></label>
                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Username">
@@ -52,11 +71,23 @@
                 <label for="formGroupExampleInput2" class="form-label"></label>
                 <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Password">
             </div>
-            <button id="loginBtn" type="button" class="btn btn-success col-10">Login</button>
+            <h1 id="ForgotPassword">Forgot password?</h1>
+            <button  id="loginBtn" type="button" class="btn btn-success col-10" style=" background-color: #7f5a83;
+           background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);" >
+                Login
+            </button>
         </div>
     </div>
 </main>
 
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById("loginBtn").addEventListener("click",function () {
+        location.href="index.html";
+        // document.getElementById("1stPage").style.display="block";
+        // document.getElementById("2ndPage").style.display="none";
+        // document.getElementById("3rdPage").style.display="none";
+    })
+</script>
 </body>
 </html>
