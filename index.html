@@ -22,7 +22,7 @@
         .btnFrame {
             position: relative;
             margin: auto;
-            top: 65px;
+            top: 83px;
         }
 
         #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
@@ -79,7 +79,7 @@
     <nav class="navbar navbar-expand-lg navbar-light container-fluid fixed-top shadow-lg" id="nav"
          style="background-color: #161B36;">
         <div class="container-fluid ">
-            <a class="navbar-brand" href="#" style="color: #E74C3C;">DSD POS System</a>
+            <a class="navbar-brand" href="#" style="color: #E74C3C; font-weight: bold">DSD POS System</a>
             <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
                     class="navbar-toggler"
                     data-bs-target="#navbarNavDropdown" data-bs-toggle="collapse" type="button">
@@ -103,7 +103,7 @@
                 </ul>
 
             </div>
-            <i class="fas fa-power-off" id="logoutIcon"></i>
+            <i class="fas fa-power-off" id="logoutIcon" style="cursor: pointer"></i>
         </div>
 
     </nav>
@@ -136,20 +136,17 @@
                 <!--            <button type="button" class="btn3 btn btn-secondary btn-sm" >+ Add New Item</button>-->
                 <div class="f4 ">
                     <input aria-label=".form-control-sm example" class="form-control form-control-sm"
-                           disabled placeholder="Item Name" readonly
+                           disabled placeholder="Customer Name" readonly
                            style="background-color: #ced6e0" type="text"></div>
                 <div class="f4 ">
-                    <input aria-label=".form-control-sm example" class="form-control form-control-sm"
-                           disabled placeholder="Item Code" readonly
-                           style="background-color: #ced6e0" type="text"></div>
+                    <button class=" btn2 btn btn-secondary col-12 " type="button"><i class="fas fa-search"></i> SEARCH</button>
+                </div>
+                <br>
+                <hr>
                 <div class="f4 ">
-                    <input aria-label=".form-control-sm example" class="form-control form-control-sm"
-                           disabled placeholder="Item Price" readonly
-                           style="background-color:#ced6e0" type="text"></div>
-                <div class="f4 ">
-                    <input aria-label=".form-control-sm example" class="form-control form-control-sm"
-                           disabled placeholder="Item Quantity" readonly
-                           style="background-color:#ced6e0" type="text"></div>
+                    <button class=" btn2 btn btn-warning col-12 " type="button"><i class="far fa-eye"></i></i> SEE ALL</button>
+                </div>
+
             </div>
             <div class="col-11 col-lg-3" id="SearchFormFrame1">
                 <div class="badge text-wrap col-12"
@@ -250,21 +247,14 @@
                            disabled placeholder="Item Name" readonly
                            style="background-color: #ced6e0" type="text"></div>
                 <div class="f4 ">
-                    <input aria-label=".form-control-sm example" class="form-control form-control-sm"
-                           disabled placeholder="Item Code" readonly
-                           style="background-color: #ced6e0" type="text"></div>
+                    <button class=" btn2 btn btn-secondary col-12 " type="button"><i class="fas fa-search"></i> SEARCH</button>
+                </div>
+                <br>
+                <hr>
                 <div class="f4 ">
-                    <input aria-label=".form-control-sm example" class="form-control form-control-sm"
-                           disabled placeholder="Item Price" readonly
-                           style="background-color:#ced6e0" type="text"></div>
-                <!--            <div class="f4 ">-->
-                <!--                <input aria-label=".form-control-sm example" class="form-control form-control-sm"-->
-                <!--                       disabled placeholder="Item Quantity" readonly-->
-                <!--                       style="background-color:#ced6e0" type="text"></div>-->
-                <!--            <div class="f4 ">-->
-                <!--                <input aria-label=".form-control-sm example" class="form-control form-control-sm"-->
-                <!--                       disabled placeholder="Item Quantity" readonly-->
-                <!--                       style="background-color:#ced6e0" type="text"></div>-->
+                    <button class=" btn2 btn btn-warning col-12 " type="button"><i class="far fa-eye"></i></i> SEE ALL</button>
+                </div>
+
             </div>
             <div class="col-11 col-lg-3" id="SearchFormFrame2">
                 <div class="badge text-wrap col-12"
