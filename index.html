@@ -22,7 +22,7 @@
         .btnFrame {
             position: relative;
             margin: auto;
-            top: 83px;
+            top: 70px;
         }
 
         #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
@@ -71,6 +71,11 @@
         #ulNAV > li:hover {
             cursor: pointer;
         }
+
+        .tbl > tr:hover {
+            cursor: pointer;
+            background-color: #74b9ff;
+        }
     </style>
 </head>
 <body>
@@ -85,19 +90,16 @@
                     data-bs-target="#navbarNavDropdown" data-bs-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown" style="">
                 <ul class="navbar-nav" id="ulNAV">
                     <li class="nav-item nav-link active" id="customerBTN">
-                        Customers
-                        <!--                        <a aria-current="" class="nav-link active" href="" style="color: white;">Customers</a>-->
+                        <a aria-current="" class="nav-link active" href="#" style="color: white;">Customers</a>
                     </li>
                     <li class="nav-item nav-link active" id="itemBTN">
-                        Items
-                        <!--                        <a class="nav-link" href="" style="color: white;">Items</a>-->
+                        <a class="nav-link" href="#" style="color: white;">Items</a>
                     </li>
                     <li class="nav-item nav-link active" id="orderBTN">
-                        Orders
-                        <!--                        <a class="nav-link" href="" style="color: white;">Orders</a>-->
+                        <a class="nav-link" href="#" style="color: white;">Orders</a>
                     </li>
 
                 </ul>
@@ -117,21 +119,26 @@
                      style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
                     Add New Customer
                 </div>
-                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input aria-label=".form-control-sm example"
+                                        class="txtNIC form-control form-control-sm"
                                         placeholder="NIC"
                                         type="text"></div>
-                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input aria-label=".form-control-sm example"
+                                        class="txtNAME form-control form-control-sm"
                                         placeholder="Name"
                                         type="text"></div>
-                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input aria-label=".form-control-sm example"
+                                        class="txtADDRESS form-control form-control-sm"
                                         placeholder="Address"
                                         type="text"></div>
-                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input aria-label=".form-control-sm example"
+                                        class="txtCONTACT form-control form-control-sm"
                                         placeholder="Contact"
                                         type="text"></div>
                 <button class="btn1 btn btn-success col-12" type="button"><i class="fas fa-save"></i> SAVE</button>
             </div>
-            <div class="col-11 col-lg-3 btnFrame" style="border: 2px solid #161B36; border-radius: 10px">
+            <div class="col-11 col-lg-3 btnFrame"
+                 style="border: 2px solid #bdc3c7;box-shadow: 0 0 7px -1px #161b36; border-radius: 10px">
                 <!--            <button  type="button" class="btn3 btn btn-secondary btn-sm">+ Add Customer</button>-->
                 <!--            <button type="button" class="btn3 btn btn-secondary btn-sm" >+ Add New Item</button>-->
                 <div class="f4 ">
@@ -139,12 +146,14 @@
                            disabled placeholder="Customer Name" readonly
                            style="background-color: #ced6e0" type="text"></div>
                 <div class="f4 ">
-                    <button class=" btn2 btn btn-secondary col-12 " type="button"><i class="fas fa-search"></i> SEARCH</button>
+                    <button class=" btn2 btn btn-secondary col-12 " type="button"><i class="fas fa-search"></i> SEARCH
+                    </button>
                 </div>
                 <br>
                 <hr>
                 <div class="f4 ">
-                    <button class=" btn2 btn btn-warning col-12 " type="button"><i class="far fa-eye"></i></i> SEE ALL</button>
+                    <button class=" btn2 btn btn-warning col-12 " type="button"><i class="far fa-eye"></i></i> SEE ALL
+                    </button>
                 </div>
 
             </div>
@@ -180,37 +189,8 @@
                     <th scope="col">Contact</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>Thornton</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <tbody class="tbl" id="tbl1" style="cursor: pointer">
+
                 </tbody>
             </table>
         </section>
@@ -225,21 +205,22 @@
                      style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
                     Add New Item
                 </div>
-                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input id="txtItemCode" aria-label=".form-control-sm example" class="form-control form-control-sm"
                                         placeholder="Item Code"
                                         type="text"></div>
-                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input id="txtItemName" aria-label=".form-control-sm example" class="form-control form-control-sm"
                                         placeholder="Item Name"
                                         type="text"></div>
-                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input id="txtItemPrice" aria-label=".form-control-sm example" class="form-control form-control-sm"
                                         placeholder="Item Price"
                                         type="text"></div>
-                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input id="txtItemQuantity" aria-label=".form-control-sm example" class="form-control form-control-sm"
                                         placeholder="Item Quantity"
                                         type="text"></div>
-                <button class="btn1 btn btn-success col-12" type="button"><i class="fas fa-save"></i> SAVE</button>
+                <button class="btn2 btn btn-success col-12" type="button"><i class="fas fa-save"></i> SAVE</button>
             </div>
-            <div class="col-11 col-lg-3 btnFrame" style="border: 2px solid #161B36; border-radius: 10px">
+            <div class="col-11 col-lg-3 btnFrame"
+                 style="border: 2px solid #bdc3c7; box-shadow: 0 0 7px -1px #161b36; border-radius: 10px">
                 <!--            <button  type="button" class="btn3 btn btn-secondary btn-sm">+ Add Customer</button>-->
                 <!--            <button type="button" class="btn3 btn btn-secondary btn-sm" >+ Add New Item</button>-->
                 <div class="f4 ">
@@ -247,12 +228,14 @@
                            disabled placeholder="Item Name" readonly
                            style="background-color: #ced6e0" type="text"></div>
                 <div class="f4 ">
-                    <button class=" btn2 btn btn-secondary col-12 " type="button"><i class="fas fa-search"></i> SEARCH</button>
+                    <button class=" btn2 btn btn-secondary col-12 " type="button"><i class="fas fa-search"></i> SEARCH
+                    </button>
                 </div>
                 <br>
                 <hr>
                 <div class="f4 ">
-                    <button class=" btn2 btn btn-warning col-12 " type="button"><i class="far fa-eye"></i></i> SEE ALL</button>
+                    <button class=" btn2 btn btn-warning col-12 " type="button"><i class="far fa-eye"></i></i> SEE ALL
+                    </button>
                 </div>
 
             </div>
@@ -286,37 +269,8 @@
                     <th scope="col">Item Quantity</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>Thornton</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <tbody class="tbl" id="tbl2">
+
                 </tbody>
             </table>
         </section>
@@ -396,7 +350,8 @@
                 </div>
             </div>
             <!--2nd col-->
-            <div class="col-11 col-lg-3 btnFrame" style="border: 2px solid #161B36; border-radius: 10px">
+            <div class="col-11 col-lg-3 btnFrame"
+                 style="border: 2px solid #bdc3c7; box-shadow: 0 0 7px -1px #161b36; border-radius: 10px">
                 <!--            <button  type="button" class="btn3 btn btn-secondary btn-sm">+ Add Customer</button>-->
                 <!--            <button type="button" class="btn3 btn btn-secondary btn-sm" >+ Add New Item</button>-->
                 <div class="f4 ">
@@ -449,7 +404,7 @@
                     <th scope="col">Total price</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="tbl">
                 <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
@@ -498,24 +453,75 @@
 </main>
 <script src="assets/JQuery/jquery-3.6.0.min.js"></script>
 <script>
-    document.getElementById("customerBTN").addEventListener("click", function () {
-        document.getElementById("1stPage").style.display = "block";
-        document.getElementById("2ndPage").style.display = "none";
-        document.getElementById("3rdPage").style.display = "none";
+    // raw javaScript======================
+    // document.getElementById("customerBTN").addEventListener("click", function () {
+    //     document.getElementById("1stPage").style.display = "block";
+    //     document.getElementById("2ndPage").style.display = "none";
+    //     document.getElementById("3rdPage").style.display = "none";
+    // })
+    // document.getElementById("itemBTN").addEventListener("click", function () {
+    //     document.getElementById("1stPage").style.display = "none";
+    //     document.getElementById("2ndPage").style.display = "block";
+    //     document.getElementById("3rdPage").style.display = "none";
+    // })
+    // document.getElementById("orderBTN").addEventListener("click", function () {
+    //     document.getElementById("1stPage").style.display = "none";
+    //     document.getElementById("2ndPage").style.display = "none";
+    //     document.getElementById("3rdPage").style.display = "block";
+    // })
+    //using Jquery=============================
+
+    $("#1stPage").css('display', 'block')
+    $("#2ndPage").css('display', 'none')
+    $("#3rdPage").css('display', 'none')
+
+    $("#customerBTN").click(function () {
+        $("#1stPage").css('display', 'block')
+        $("#2ndPage").css('display', 'none')
+        $("#3rdPage").css('display', 'none')
     })
-    document.getElementById("itemBTN").addEventListener("click", function () {
-        document.getElementById("1stPage").style.display = "none";
-        document.getElementById("2ndPage").style.display = "block";
-        document.getElementById("3rdPage").style.display = "none";
+    $("#itemBTN").click(function () {
+        $("#1stPage").css('display', 'none')
+        $("#2ndPage").css('display', 'block')
+        $("#3rdPage").css('display', 'none')
     })
-    document.getElementById("orderBTN").addEventListener("click", function () {
-        document.getElementById("1stPage").style.display = "none";
-        document.getElementById("2ndPage").style.display = "none";
-        document.getElementById("3rdPage").style.display = "block";
+    $("#orderBTN").click(function () {
+        $("#1stPage").css('display', 'none')
+        $("#2ndPage").css('display', 'none')
+        $("#3rdPage").css('display', 'block')
     })
+
     $("#logoutIcon").click(function () {
-        location.href="login_index.html";
+        location.href = "login_index.html";
     })
+
+    //Customer
+    $(".btn1").click(function () {
+        let custNic = $(".txtNIC").val();
+        let custName = $(".txtNAME").val();
+        let custAddress = $(".txtADDRESS").val();
+        let custContact = $(".txtCONTACT").val();
+        let row = `<tr><td>${custNic}</td><td>${custName}</td><td>${custAddress}</td><td>${custContact}</td></tr>`;
+        $("#tbl1").append(row);
+
+        $("#tbl1>tr").click(function () {
+            console.log(this);
+        })
+
+    })
+    //Item
+    $("#btn2").click(function () {
+        let itemCode=$("#txtItemCode").val();
+        let itemName=$("#txtItemName").val();
+        let itemPrice=$("#txtItemPrice").val();
+        let itemQuantity=$("#txtItemQuantity").val();
+        let row=`<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQuantity}</td></tr>`;
+        $("#tbl2").append(row);
+        $("#tbl2>tr").click(function () {
+            console.log(this);
+        })
+    })
+    //Order
 </script>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
