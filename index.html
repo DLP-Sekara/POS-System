@@ -46,7 +46,7 @@
             padding-top: 20px;
         }
 
-        .btn1, .btn2 {
+        .btn1, .btn2, .btn3 {
             margin-top: 10px;
         }
 
@@ -286,31 +286,31 @@
                      style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
                     Add New Order
                 </div>
-                <select aria-label=".form-select-lg example" class=" f3 form-select form-select-sm">
+                <select id="selectCustomer" aria-label=".form-select-lg example" class=" f3 form-select form-select-sm">
                     <option selected>Select Customer</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
-                <select aria-label=".form-select-lg example" class=" f3 form-select form-select-sm">
+                <select id="selectItem" aria-label=".form-select-lg example" class=" f3 form-select form-select-sm">
                     <option selected>Select Item</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
-                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input id="Quantity" aria-label=".form-control-sm example" class="form-control form-control-sm"
                                         placeholder="Quantity"
                                         type="text"></div>
-                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input id="DateTime" aria-label=".form-control-sm example" class="form-control form-control-sm"
                                         placeholder="Date & time"
                                         type="text"></div>
-                <!--            <button class="btn1 btn btn-success col-12" type="button"><i class="fas fa-save"></i>    SAVE </button>-->
-                <!-- Button trigger modal -->
-                <button class="btn1 btn btn-success col-12" data-bs-target="#staticBackdrop" data-bs-toggle="modal"
-                        type="button">
-                    <i class="fas fa-save"></i> SAVE
-                </button>
 
+                <!-- Button trigger modal -->
+<!--                <button class="btn3 btn btn-success col-12" data-bs-target="#staticBackdrop" data-bs-toggle="modal"-->
+<!--                        type="button">-->
+<!--                    <i class="fas fa-save"></i> SAVE-->
+<!--                </button>-->
+                <button class="btn3 btn btn-success col-12" type="button"><i class="fas fa-save"></i> SAVE</button>
                 <!-- Modal -->
                 <div aria-hidden="true" aria-labelledby="staticBackdropLabel" class="modal fade"
                      data-bs-backdrop="static"
@@ -404,47 +404,8 @@
                     <th scope="col">Total price</th>
                 </tr>
                 </thead>
-                <tbody class="tbl">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>Thornton</td>
-                    <td>Thornton</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <tbody id="tbl3" class="tbl">
+
                 </tbody>
             </table>
         </section>
@@ -501,27 +462,39 @@
         let custName = $(".txtNAME").val();
         let custAddress = $(".txtADDRESS").val();
         let custContact = $(".txtCONTACT").val();
-        let row = `<tr><td>${custNic}</td><td>${custName}</td><td>${custAddress}</td><td>${custContact}</td></tr>`;
-        $("#tbl1").append(row);
+        let row1 = `<tr><td>${custNic}</td><td>${custName}</td><td>${custAddress}</td><td>${custContact}</td></tr>`;
+        $("#tbl1").append(row1);
 
         $("#tbl1>tr").click(function () {
-            console.log(this);
+            console.log(this.children(""));
         })
 
     })
     //Item
-    $("#btn2").click(function () {
+    $(".btn2").click(function () {
         let itemCode=$("#txtItemCode").val();
         let itemName=$("#txtItemName").val();
         let itemPrice=$("#txtItemPrice").val();
         let itemQuantity=$("#txtItemQuantity").val();
-        let row=`<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQuantity}</td></tr>`;
-        $("#tbl2").append(row);
+        let row2=`<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQuantity}</td></tr>`;
+        $("#tbl2").append(row2);
         $("#tbl2>tr").click(function () {
             console.log(this);
         })
     })
     //Order
+    $(".btn3").click(function () {
+        let selectedCustomer=$("#selectCustomer").val();
+        let selectedItem=$("#selectItem").val();
+        let quantity=$("#Quantity").val();
+        let dateTime=$("#DateTime").val();
+        let row3=`<tr><td>1</td><td>${dateTime}</td><td>${selectedCustomer}</td><td>${selectedItem}</td><td>${quantity}</td><td>1000</td></tr>`;
+
+        $("#tbl3").append(row3);
+        $("#tbl3>tr").click(function () {
+            console.log(this);
+        })
+    })
 </script>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
