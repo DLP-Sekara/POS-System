@@ -121,21 +121,26 @@
                 </div>
                 <div class="f1 "><input aria-label=".form-control-sm example"
                                         class="txtNIC form-control form-control-sm"
+                                        id="txtCustNic"
                                         placeholder="NIC"
                                         type="text"></div>
                 <div class="f1 "><input aria-label=".form-control-sm example"
                                         class="txtNAME form-control form-control-sm"
+                                        id="txtCustName"
                                         placeholder="Name"
                                         type="text"></div>
                 <div class="f1 "><input aria-label=".form-control-sm example"
                                         class="txtADDRESS form-control form-control-sm"
+                                        id="txtCustAddress"
                                         placeholder="Address"
                                         type="text"></div>
                 <div class="f1 "><input aria-label=".form-control-sm example"
                                         class="txtCONTACT form-control form-control-sm"
+                                        id="txtCustContact"
                                         placeholder="Contact"
                                         type="text"></div>
-                <button class="btn1 btn btn-success col-12" type="button"><i class="fas fa-save"></i> SAVE</button>
+                <button class="btn1 btn btn-success col-12" id="saveBtn" type="button"><i class="fas fa-save"></i> SAVE
+                </button>
             </div>
             <div class="col-11 col-lg-3 btnFrame"
                  style="border: 2px solid #bdc3c7;box-shadow: 0 0 7px -1px #161b36; border-radius: 10px">
@@ -162,15 +167,16 @@
                      style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
                     Update Customer
                 </div>
-                <div class="f2 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f2 "><input aria-label=".form-control-sm example"
+                                        class="txtCustNameUp form-control form-control-sm"
                                         placeholder="Select Customer from the table"
-                                        type="text">
-                </div>
-                <!--            <button type="button" class="btn btn-outline-secondary ">Search</button>-->
-                <div class="f2 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                                        type="text"></div>
+                <div class="f2 "><input aria-label=".form-control-sm example"
+                                        class="txtCustAddressUp form-control form-control-sm"
                                         placeholder=""
                                         type="text"></div>
-                <div class="f2 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f2 "><input aria-label=".form-control-sm example"
+                                        class="txtCustContactUp form-control form-control-sm"
                                         placeholder=""
                                         type="text"></div>
                 <button class=" btn2 btn btn-primary col-12 " type="button"><i class="fas fa-edit"></i> UPDATE</button>
@@ -205,16 +211,20 @@
                      style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
                     Add New Item
                 </div>
-                <div class="f1 "><input id="txtItemCode" aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                                        id="txtItemCode"
                                         placeholder="Item Code"
                                         type="text"></div>
-                <div class="f1 "><input id="txtItemName" aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                                        id="txtItemName"
                                         placeholder="Item Name"
                                         type="text"></div>
-                <div class="f1 "><input id="txtItemPrice" aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                                        id="txtItemPrice"
                                         placeholder="Item Price"
                                         type="text"></div>
-                <div class="f1 "><input id="txtItemQuantity" aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                                        id="txtItemQuantity"
                                         placeholder="Item Quantity"
                                         type="text"></div>
                 <button class="btn2 btn btn-success col-12" type="button"><i class="fas fa-save"></i> SAVE</button>
@@ -286,30 +296,32 @@
                      style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
                     Add New Order
                 </div>
-                <select id="selectCustomer" aria-label=".form-select-lg example" class=" f3 form-select form-select-sm">
+                <select aria-label=".form-select-lg example" class=" f3 form-select form-select-sm" id="selectCustomer">
                     <option selected>Select Customer</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
-                <select id="selectItem" aria-label=".form-select-lg example" class=" f3 form-select form-select-sm">
+                <select aria-label=".form-select-lg example" class=" f3 form-select form-select-sm" id="selectItem">
                     <option selected>Select Item</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
-                <div class="f1 "><input id="Quantity" aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                                        id="Quantity"
                                         placeholder="Quantity"
                                         type="text"></div>
-                <div class="f1 "><input id="DateTime" aria-label=".form-control-sm example" class="form-control form-control-sm"
+                <div class="f1 "><input aria-label=".form-control-sm example" class="form-control form-control-sm"
+                                        id="DateTime"
                                         placeholder="Date & time"
                                         type="text"></div>
 
                 <!-- Button trigger modal -->
-<!--                <button class="btn3 btn btn-success col-12" data-bs-target="#staticBackdrop" data-bs-toggle="modal"-->
-<!--                        type="button">-->
-<!--                    <i class="fas fa-save"></i> SAVE-->
-<!--                </button>-->
+                <!--                <button class="btn3 btn btn-success col-12" data-bs-target="#staticBackdrop" data-bs-toggle="modal"-->
+                <!--                        type="button">-->
+                <!--                    <i class="fas fa-save"></i> SAVE-->
+                <!--                </button>-->
                 <button class="btn3 btn btn-success col-12" type="button"><i class="fas fa-save"></i> SAVE</button>
                 <!-- Modal -->
                 <div aria-hidden="true" aria-labelledby="staticBackdropLabel" class="modal fade"
@@ -404,7 +416,7 @@
                     <th scope="col">Total price</th>
                 </tr>
                 </thead>
-                <tbody id="tbl3" class="tbl">
+                <tbody class="tbl" id="tbl3">
 
                 </tbody>
             </table>
@@ -456,7 +468,114 @@
         location.href = "login_index.html";
     })
 
-    //Customer
+    //Customer======================================================================================================
+    $("#saveBtn").attr('disabled', true);
+
+    var nicRegEx = /^[0-9]{10}$/;
+    var nameRegEx = /^[A-z ]{5,20}$/;
+    var addressRegEx = /^[A-z ]{5,20}$/;
+    var contactRegEx = /^[0-9]{10}$/;
+
+    $("#txtCustNic").keyup(function (event) {
+        let temp = checkNic();
+        btnAction();
+        if ("Enter" == event.key & temp == true) {
+            $("#txtCustName").focus();
+        }
+    })
+
+    function checkNic() {
+        let temp = $("#txtCustNic").val();
+        if (nicRegEx.test(temp)) {
+            $("#txtCustNic").css('border', '2px solid green');
+            tempOne = true;
+
+            return true;
+        } else {
+            $("#txtCustNic").css('border', '2px solid red');
+        }
+    }
+
+    $("#txtCustName").keyup(function (event) {
+        let temp = checkName();
+        btnAction();
+        if ("Enter" == event.key & temp == true) {
+            $("#txtCustAddress").focus();
+        }
+    })
+
+    function checkName() {
+        let temp = $("#txtCustName").val();
+        if (nameRegEx.test(temp)) {
+            $("#txtCustName").css('border', '2px solid green');
+            tempTwo = true;
+
+            return true;
+        } else {
+            $("#txtCustName").css('border', '2px solid red');
+        }
+    }
+
+    $("#txtCustAddress").keyup(function (event) {
+        let temp = checkAddress();
+        btnAction();
+        if ("Enter" == event.key & temp == true) {
+            $("#txtCustContact").focus();
+        }
+    })
+
+    function checkAddress() {
+        let temp = $("#txtCustAddress").val();
+        if (addressRegEx.test(temp)) {
+            $("#txtCustAddress").css('border', '2px solid green');
+            tempThree = true;
+
+            return true;
+        } else {
+            $("#txtCustAddress").css('border', '2px solid red');
+        }
+    }
+
+    $("#txtCustContact").keyup(function (event) {
+        let temp = checkContact();
+        btnAction();
+        if ("Enter" == event.key & temp == true) {
+            $("#txtCustName").focus();
+        }
+    })
+
+    function checkContact() {
+        let temp = $("#txtCustContact").val();
+        if (contactRegEx.test(temp)) {
+            $("#txtCustContact").css('border', '2px solid green');
+
+            return true;
+
+        } else {
+            $("#txtCustContact").css('border', '2px solid red');
+        }
+    }
+
+    function btnAction() {
+        let nic = $("#txtCustNic").val();
+        if (nicRegEx.test(nic)) {
+            let name = $("#txtCustName").val();
+            if (nameRegEx.test(name)) {
+                let address = $("#txtCustAddress").val();
+                if (addressRegEx.test(address)) {
+                    let contact = $("#txtCustContact").val();
+                    if (contactRegEx.test(contact)) {
+                        $("#saveBtn").attr('disabled', false);
+                    }
+                    return false;
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
+    }
+
     $(".btn1").click(function () {
         let custNic = $(".txtNIC").val();
         let custName = $(".txtNAME").val();
@@ -466,29 +585,41 @@
         $("#tbl1").append(row1);
 
         $("#tbl1>tr").click(function () {
-            console.log(this.children(""));
-        })
+            let custID = $(this).children().eq(0).text();
+            let custName = $(this).children().eq(1).text();
+            let custAddrress = $(this).children().eq(2).text();
+            let custContact = $(this).children().eq(3).text();
 
+            $(".txtCustNameUp").val(custName);
+            $(".txtCustAddressUp").val(custAddrress);
+            $(".txtCustContactUp").val(custContact);
+
+        })
+        $("#tbl1>tr").dblclick(function () {
+            $(this).remove();
+        })
     })
-    //Item
+
+
+    //Item======================================================================================================
     $(".btn2").click(function () {
-        let itemCode=$("#txtItemCode").val();
-        let itemName=$("#txtItemName").val();
-        let itemPrice=$("#txtItemPrice").val();
-        let itemQuantity=$("#txtItemQuantity").val();
-        let row2=`<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQuantity}</td></tr>`;
+        let itemCode = $("#txtItemCode").val();
+        let itemName = $("#txtItemName").val();
+        let itemPrice = $("#txtItemPrice").val();
+        let itemQuantity = $("#txtItemQuantity").val();
+        let row2 = `<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQuantity}</td></tr>`;
         $("#tbl2").append(row2);
         $("#tbl2>tr").click(function () {
             console.log(this);
         })
     })
-    //Order
+    //Order======================================================================================================
     $(".btn3").click(function () {
-        let selectedCustomer=$("#selectCustomer").val();
-        let selectedItem=$("#selectItem").val();
-        let quantity=$("#Quantity").val();
-        let dateTime=$("#DateTime").val();
-        let row3=`<tr><td>1</td><td>${dateTime}</td><td>${selectedCustomer}</td><td>${selectedItem}</td><td>${quantity}</td><td>1000</td></tr>`;
+        let selectedCustomer = $("#selectCustomer").val();
+        let selectedItem = $("#selectItem").val();
+        let quantity = $("#Quantity").val();
+        let dateTime = $("#DateTime").val();
+        let row3 = `<tr><td>1</td><td>${dateTime}</td><td>${selectedCustomer}</td><td>${selectedItem}</td><td>${quantity}</td><td>1000</td></tr>`;
 
         $("#tbl3").append(row3);
         $("#tbl3>tr").click(function () {
