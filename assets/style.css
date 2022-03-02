@@ -1,0 +1,103 @@
+#formFrame1, #formFrame2, #formFrame3 {
+    position: relative;
+    margin: auto;
+    top: 80px;
+}
+
+#logoutIcon {
+    color: white;
+!important;
+}
+
+.btnFrame {
+    position: relative;
+    margin: auto;
+    top: 100px;
+/ / width: 48.666667 %;
+}
+
+/*.saveBtn,.updateBtn{
+    width: 177px;
+}*/
+#SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
+    position: relative;
+    margin: auto;
+    top: 60px;
+}
+
+.dltTxt {
+    color: #161B36;
+    position: relative;
+    top: -20px;
+    font-size: 13px;
+}
+
+#tableFrame1, #tableFrame2, #tableFrame3 {
+    position: relative;
+    margin: auto;
+    top: 120px;
+
+}
+
+.f1 {
+    padding-top: 20px;
+}
+
+.f2 {
+    padding-top: 20px;
+}
+
+.btn1, .btn2, .btn3 {
+    margin-top: 10px;
+}
+
+.dltBtn {
+    position: relative;
+    top: 35px;
+}
+
+.f3 {
+    margin-top: 20px;
+}
+
+.f4 {
+    position: relative;
+    top: -11px;
+    margin-top: 20px;
+}
+
+#sampleBTN {
+    color: white;
+}
+
+#ulNAV > li {
+    color: white;
+}
+
+#ulNAV > li:hover {
+    cursor: pointer;
+}
+
+.tbl > tr:hover {
+    cursor: pointer;
+    background-color: #74b9ff;
+}
+
+@media all and  (max-device-width: 1024px) {
+    #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
+        top: 100px;
+    }
+}
+
+@media all and  (max-device-width: 1024px) {
+    .dltTxt {
+        top: 10px;
+    !important;
+    }
+}
+
+@media all and  (max-device-width: 1024px) {
+    .dltBtn {
+        top: 10px;
+    }
+}

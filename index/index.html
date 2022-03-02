@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <title>DSD POS</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/fontawesome/css/all.css" rel="stylesheet">
-    <link href="assets/css/fontawesome/css/all.css" rel="stylesheet">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/fontawesome/css/all.css" rel="stylesheet">
+    <link href="../assets/css/fontawesome/css/all.css" rel="stylesheet">
+    <link href="../assets/style.css" rel="stylesheet">
     <style>
-        #formFrame1, #formFrame2, #formFrame3 {
+        /*#formFrame1, #formFrame2, #formFrame3 {
             position: relative;
             margin: auto;
-            top: 60px;
+            top: 80px;
         }
 
         #logoutIcon {
@@ -22,19 +23,30 @@
         .btnFrame {
             position: relative;
             margin: auto;
-            top: 70px;
+            top: 100px;
+        / / width: 48.666667 %;
         }
 
+        !*.saveBtn,.updateBtn{
+            width: 177px;
+        }*!
         #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
             position: relative;
             margin: auto;
             top: 60px;
         }
 
+        .dltTxt {
+            color: #161B36;
+            position: relative;
+            top: -20px;
+            font-size: 13px;
+        }
+
         #tableFrame1, #tableFrame2, #tableFrame3 {
             position: relative;
             margin: auto;
-            top: 90px;
+            top: 120px;
 
         }
 
@@ -48,6 +60,11 @@
 
         .btn1, .btn2, .btn3 {
             margin-top: 10px;
+        }
+
+        .dltBtn {
+            position: relative;
+            top: 35px;
         }
 
         .f3 {
@@ -76,6 +93,26 @@
             cursor: pointer;
             background-color: #74b9ff;
         }
+
+        @media all and  (max-device-width: 1024px) {
+            #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
+                top: 100px;
+            }
+        }
+
+        @media all and  (max-device-width: 1024px) {
+            .dltTxt {
+                top: 10px;
+            !important;
+            }
+        }
+
+        @media all and  (max-device-width: 1024px) {
+            .dltBtn {
+                top: 10px;
+            }
+        }
+*/
     </style>
 </head>
 <body>
@@ -139,48 +176,56 @@
                                         id="txtCustContact"
                                         placeholder="Contact"
                                         type="text"></div>
-                <button class="btn1 btn btn-success col-12" id="saveBtn" type="button"><i class="fas fa-save"></i> SAVE
-                </button>
+                <div class="d-flex justify-content-center">
+                    <button class="saveBtn btn1 btn btn-success col-12 col-sm-12 col-md-12  " id="saveBtn"
+                            type="button"><i class="fas fa-save"></i> SAVE
+                    </button>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="updateBtn btn2 btn btn-primary col-12 col-sm-12 col-md-12   " type="button"><i
+                            class="fas fa-edit"></i> UPDATE
+                    </button>
+                </div>
             </div>
             <div class="col-11 col-lg-3 btnFrame"
                  style="border: 2px solid #bdc3c7;box-shadow: 0 0 7px -1px #161b36; border-radius: 10px">
-                <!--            <button  type="button" class="btn3 btn btn-secondary btn-sm">+ Add Customer</button>-->
-                <!--            <button type="button" class="btn3 btn btn-secondary btn-sm" >+ Add New Item</button>-->
                 <div class="f4 ">
-                    <input aria-label=".form-control-sm example" class="form-control form-control-sm"
-                           disabled placeholder="Customer Name" readonly
+                    <input aria-label=".form-control-sm example" class="custSearchField form-control form-control-sm"
+                           placeholder=""
                            style="background-color: #ced6e0" type="text"></div>
                 <div class="f4 ">
-                    <button class=" btn2 btn btn-secondary col-12 " type="button"><i class="fas fa-search"></i> SEARCH
+                    <button class="custSearchbtn btn2 btn btn-secondary col-12 " type="button"><i
+                            class="fas fa-search"></i> SEARCH
                     </button>
                 </div>
                 <br>
                 <hr>
                 <div class="f4 ">
-                    <button class=" btn2 btn btn-warning col-12 " type="button"><i class="far fa-eye"></i></i> SEE ALL
+                    <button class="seeAllBtn btn2 btn btn-warning col-12 " type="button"><i class="far fa-eye"></i></i>
+                        SEE ALL
                     </button>
                 </div>
 
             </div>
             <div class="col-11 col-lg-3" id="SearchFormFrame1">
-                <div class="badge text-wrap col-12"
-                     style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
-                    Update Customer
+                <div class="dltTxt badge text-wrap col-12"
+                     style="">
+                    Delete Customer
                 </div>
                 <div class="f2 "><input aria-label=".form-control-sm example"
-                                        class="txtCustNameUp form-control form-control-sm"
+                                        class="dltTxt txtCustNameUp form-control form-control-sm"
                                         placeholder="Select Customer from the table"
                                         type="text"></div>
                 <div class="f2 "><input aria-label=".form-control-sm example"
-                                        class="txtCustAddressUp form-control form-control-sm"
+                                        class="dltTxt txtCustAddressUp form-control form-control-sm"
                                         placeholder=""
                                         type="text"></div>
                 <div class="f2 "><input aria-label=".form-control-sm example"
-                                        class="txtCustContactUp form-control form-control-sm"
+                                        class="dltTxt txtCustContactUp form-control form-control-sm"
                                         placeholder=""
                                         type="text"></div>
-                <button class=" btn2 btn btn-primary col-12 " type="button"><i class="fas fa-edit"></i> UPDATE</button>
-                <button class="btn2 btn btn-danger col-12  " type="button"><i class="fas fa-trash-alt"></i> DELETE
+                <button class="dltBtn btn2 btn btn-danger col-12  " type="button"><i class="fas fa-trash-alt"></i>
+                    DELETE
                 </button>
             </div>
         </section>
@@ -227,14 +272,22 @@
                                         id="txtItemQuantity"
                                         placeholder="Item Quantity"
                                         type="text"></div>
-                <button class="itemSaveBtn btn2 btn btn-success col-12" type="button"><i class="fas fa-save"></i> SAVE
-                </button>
+                <div class="d-flex justify-content-center">
+                    <button class="saveBtn itemSaveBtn btn2 btn btn-success col-12 col-sm-12" type="button"><i
+                            class="fas fa-save"></i> SAVE
+                    </button>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="updateBtn btn2 btn btn-primary col-12 col-sm-12" type="button"><i
+                            class="fas fa-edit"></i> UPDATE
+                    </button>
+                </div>
             </div>
             <div class="col-11 col-lg-3 btnFrame"
                  style="border: 2px solid #bdc3c7; box-shadow: 0 0 7px -1px #161b36; border-radius: 10px">
                 <div class="f4 ">
                     <input aria-label=".form-control-sm example" class="form-control form-control-sm"
-                           disabled placeholder="Item Name" readonly
+                           placeholder="Item Name"
                            style="background-color: #ced6e0" type="text"></div>
                 <div class="f4 ">
                     <button class=" btn2 btn btn-secondary col-12 " type="button"><i class="fas fa-search"></i> SEARCH
@@ -249,24 +302,25 @@
 
             </div>
             <div class="col-11 col-lg-3" id="SearchFormFrame2">
-                <div class="badge text-wrap col-12"
-                     style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
-                    Update Item
+                <div class="dltTxt badge text-wrap col-12"
+                     style="">
+                    Delete Item
                 </div>
                 <div class="f2 ">
-                    <input aria-label=".form-control-sm example" class="tempItemName form-control form-control-sm"
+                    <input aria-label=".form-control-sm example"
+                           class="dltTxt tempItemName form-control form-control-sm"
                            placeholder="Select Item from the table"
                            type="text"></div>
                 <div class="f2 "><input aria-label=".form-control-sm example"
-                                        class="tempItemPrice form-control form-control-sm"
+                                        class="dltTxt tempItemPrice form-control form-control-sm"
                                         placeholder=""
                                         type="text"></div>
                 <div class="f2 "><input aria-label=".form-control-sm example"
-                                        class="tempItemQty form-control form-control-sm"
+                                        class="dltTxt tempItemQty form-control form-control-sm"
                                         placeholder=""
                                         type="text"></div>
-                <button class=" btn2 btn btn-primary col-12 " type="button"><i class="fas fa-edit"></i> UPDATE</button>
-                <button class="btn2 btn btn-danger col-12  " type="button"><i class="fas fa-trash-alt"></i> DELETE
+                <button class="dltBtn btn2 btn btn-danger col-12  " type="button"><i class="fas fa-trash-alt"></i>
+                    DELETE
                 </button>
             </div>
         </section>
@@ -319,8 +373,16 @@
                                         placeholder="Discount"
                                         type="text"></div>
 
-                <button class="saveOrderBtn btn3 btn btn-success col-12" type="button"><i class="fas fa-save"></i> SAVE
-                </button>
+                <div class="d-flex justify-content-center">
+                    <button class="saveBtn saveOrderBtn btn3 btn btn-success col-12 col-sm-12" type="button"><i
+                            class="fas fa-save"></i> SAVE
+                    </button>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="updateBtn btn2 btn btn-primary col-12 col-sm-12 " type="button"><i
+                            class="fas fa-edit"></i> UPDATE
+                    </button>
+                </div>
                 <!-- Modal -->
                 <div aria-hidden="true" aria-labelledby="staticBackdropLabel" class="modal fade"
                      data-bs-backdrop="static"
@@ -362,8 +424,6 @@
             <!--2nd col-->
             <div class="col-11 col-lg-3 btnFrame"
                  style="border: 2px solid #bdc3c7; box-shadow: 0 0 7px -1px #161b36; border-radius: 10px">
-                <!--            <button  type="button" class="btn3 btn btn-secondary btn-sm">+ Add Customer</button>-->
-                <!--            <button type="button" class="btn3 btn btn-secondary btn-sm" >+ Add New Item</button>-->
                 <div class="f4 ">
                     <input aria-label=".form-control-sm example" class="form-control form-control-sm"
                            disabled placeholder="Item Name" readonly
@@ -383,23 +443,25 @@
             </div>
             <!--3rd col-->
             <div class="col-11 col-lg-3" id="SearchFormFrame3">
-                <div class="badge text-wrap col-12"
-                     style="color: #161B36;position: relative;top: 10px;font-size: 13px;">
-                    Update Order
+                <div class="dltTxt badge text-wrap col-12"
+                     style="">
+                    Delete Order
                 </div>
                 <div class="f2 ">
-                    <input aria-label=".form-control-sm example" class="tempCustomerName form-control form-control-sm"
+                    <input aria-label=".form-control-sm example"
+                           class="dltTxt tempCustomerName form-control form-control-sm"
                            placeholder="Select Order from the table" type="text"></div>
                 <div class="f2 "><input aria-label=".form-control-sm example"
-                                        class="tempItemName form-control form-control-sm"
+                                        class="dltTxt tempItemName form-control form-control-sm"
                                         placeholder=""
                                         type="text"></div>
                 <div class="f2 "><input aria-label=".form-control-sm example"
-                                        class="tempOrderPrice form-control form-control-sm"
+                                        class="dltTxt tempOrderPrice form-control form-control-sm"
                                         placeholder=""
                                         type="text"></div>
-                <button class=" btn2 btn btn-primary col-12 " type="button"><i class="fas fa-edit"></i> UPDATE</button>
-                <button class="btn2 btn btn-danger col-12  " type="button"><i class="fas fa-trash-alt"></i> DELETE
+
+                <button class="dltBtn btn2 btn btn-danger col-12  " type="button"><i class="fas fa-trash-alt"></i>
+                    DELETE
                 </button>
             </div>
         </section>
@@ -424,7 +486,17 @@
     </section>
 
 </main>
-<script src="assets/JQuery/jquery-3.6.0.min.js"></script>
+<script src="../assets/JQuery/jquery-3.6.0.min.js"></script>
+<script src="../db/db.js"></script>
+<script src="../model/customerModel.js"></script>
+<script src="../model/itemModel.js"></script>
+<script src="../model/orderModel.js"></script>
+
+<script src="../controller/customer.js"></script>
+<script src="../controller/item.js"></script>
+<script src="../controller/order.js"></script>
+
+
 <script>
     // raw javaScript======================
     // document.getElementById("customerBTN").addEventListener("click", function () {
@@ -442,7 +514,8 @@
     //     document.getElementById("2ndPage").style.display = "none";
     //     document.getElementById("3rdPage").style.display = "block";
     // })
-    //using Jquery=============================
+
+    //using Jquery for basic=============================
 
     $("#1stPage").css('display', 'block')
     $("#2ndPage").css('display', 'none')
@@ -468,391 +541,9 @@
         location.href = "login_index.html";
     })
 
-    //Customer======================================================================================================
-    $("#saveBtn").attr('disabled', true);
+    $(".dltTxt").attr('disabled', true);
 
-    var nicRegEx = /^[0-9]{10}$/;
-    var nameRegEx = /^[A-z ]{5,20}$/;
-    var addressRegEx = /^[A-z ]{5,20}$/;
-    var contactRegEx = /^[0-9]{10}$/;
-
-    $("#txtCustNic").keyup(function (event) {
-        let temp = checkNic();
-        btnAction1();
-        if ("Enter" == event.key & temp == true) {
-            $("#txtCustName").focus();
-        }
-    })
-
-    function checkNic() {
-        let temp = $("#txtCustNic").val();
-        if (nicRegEx.test(temp)) {
-            $("#txtCustNic").css('border', '2px solid green');
-            tempOne = true;
-
-            return true;
-        } else {
-            $("#txtCustNic").css('border', '2px solid red');
-        }
-    }
-
-    $("#txtCustName").keyup(function (event) {
-        let temp = checkName();
-        btnAction1();
-        if ("Enter" == event.key & temp == true) {
-            $("#txtCustAddress").focus();
-        }
-    })
-
-    function checkName() {
-        let temp = $("#txtCustName").val();
-        if (nameRegEx.test(temp)) {
-            $("#txtCustName").css('border', '2px solid green');
-            tempTwo = true;
-
-            return true;
-        } else {
-            $("#txtCustName").css('border', '2px solid red');
-        }
-    }
-
-    $("#txtCustAddress").keyup(function (event) {
-        let temp = checkAddress();
-        btnAction1();
-        if ("Enter" == event.key & temp == true) {
-            $("#txtCustContact").focus();
-        }
-    })
-
-    function checkAddress() {
-        let temp = $("#txtCustAddress").val();
-        if (addressRegEx.test(temp)) {
-            $("#txtCustAddress").css('border', '2px solid green');
-            tempThree = true;
-
-            return true;
-        } else {
-            $("#txtCustAddress").css('border', '2px solid red');
-        }
-    }
-
-    $("#txtCustContact").keyup(function (event) {
-        let temp = checkContact();
-        btnAction1();
-        if ("Enter" == event.key & temp == true) {
-            saveCustomer();
-        }
-    })
-
-    function checkContact() {
-        let temp = $("#txtCustContact").val();
-        if (contactRegEx.test(temp)) {
-            $("#txtCustContact").css('border', '2px solid green');
-
-            return true;
-
-        } else {
-            $("#txtCustContact").css('border', '2px solid red');
-        }
-    }
-
-    function btnAction1() {
-        let nic = $("#txtCustNic").val();
-        if (nicRegEx.test(nic)) {
-            let name = $("#txtCustName").val();
-            if (nameRegEx.test(name)) {
-                let address = $("#txtCustAddress").val();
-                if (addressRegEx.test(address)) {
-                    let contact = $("#txtCustContact").val();
-                    if (contactRegEx.test(contact)) {
-                        $("#saveBtn").attr('disabled', false);
-                    } else {
-                        $("#saveBtn").attr('disabled', true);
-                        return false;
-                    }
-                } else {
-                    $("#saveBtn").attr('disabled', true);
-                    return false;
-                }
-            } else {
-                $("#saveBtn").attr('disabled', true);
-                return false;
-            }
-        } else {
-            $("#saveBtn").attr('disabled', true);
-            return false;
-        }
-    }
-
-    $(".btn1").click(function () {
-        saveCustomer();
-    })
-
-    function saveCustomer() {
-        let custNic = $(".txtNIC").val();
-        let custName = $(".txtNAME").val();
-        let custAddress = $(".txtADDRESS").val();
-        let custContact = $(".txtCONTACT").val();
-        let row1 = `<tr><td>${custNic}</td><td>${custName}</td><td>${custAddress}</td><td>${custContact}</td></tr>`;
-        $("#tbl1").append(row1);
-
-        $("#tbl1>tr").click(function () {
-            let custID = $(this).children().eq(0).text();
-            let custName = $(this).children().eq(1).text();
-            let custAddrress = $(this).children().eq(2).text();
-            let custContact = $(this).children().eq(3).text();
-
-            $(".txtCustNameUp").val(custName);
-            $(".txtCustAddressUp").val(custAddrress);
-            $(".txtCustContactUp").val(custContact);
-
-        })
-        $("#tbl1>tr").dblclick(function () {
-            $(this).remove();
-        })
-    }
-
-    //Item======================================================================================================
-    $(".itemSaveBtn").attr('disabled', true);
-    var codeRegEx = /^[0-9]{4}$/;
-    var itemNameRegEx = /^[A-z ]{3,20}$/;
-    var priceRegEx = /^[0-9]{2,10}$/;
-    var qtyRegEx = /^[0-9]{1,20}$/;
-
-    $("#txtItemCode").keyup(function (event) {
-        let temp = checkItemcCode();
-        btnAction2();
-        if ("Enter" == event.key & temp == true) {
-            $("#txtItemName").focus();
-        }
-    })
-
-    function checkItemcCode() {
-        let temp = $("#txtItemCode").val();
-        if (codeRegEx.test(temp)) {
-            $("#txtItemCode").css('border', '2px solid green');
-            return true;
-        } else {
-            $("#txtItemCode").css('border', '2px solid red');
-        }
-    }
-
-    $("#txtItemName").keyup(function (event) {
-        let temp = checkItemName();
-        btnAction2();
-        if ("Enter" == event.key & temp == true) {
-            $("#txtItemPrice").focus();
-        }
-    })
-
-    function checkItemName() {
-        let temp = $("#txtItemName").val();
-        if (itemNameRegEx.test(temp)) {
-            $("#txtItemName").css('border', '2px solid green');
-            return true;
-        } else {
-            $("#txtItemName").css('border', '2px solid red');
-        }
-    }
-
-    $("#txtItemPrice").keyup(function (event) {
-        let temp = checkItemPrice();
-        btnAction2();
-        if ("Enter" == event.key & temp == true) {
-            $("#txtItemQuantity").focus();
-        }
-    })
-
-    function checkItemPrice() {
-        let temp = $("#txtItemPrice").val();
-        if (priceRegEx.test(temp)) {
-            $("#txtItemPrice").css('border', '2px solid green');
-            return true;
-        } else {
-            $("#txtItemPrice").css('border', '2px solid red');
-        }
-    }
-
-    $("#txtItemQuantity").keyup(function (event) {
-        let temp = checkQty();
-        btnAction2();
-        if ("Enter" == event.key & temp == true) {
-            saveItem();
-        }
-    })
-
-    function checkQty() {
-        let temp = $("#txtItemQuantity").val();
-        if (qtyRegEx.test(temp)) {
-            $("#txtItemQuantity").css('border', '2px solid green');
-            return true;
-        } else {
-            $("#txtItemQuantity").css('border', '2px solid red');
-        }
-    }
-
-    function btnAction2() {
-        let code = $("#txtItemCode").val();
-        if (codeRegEx.test(code)) {
-            let name = $("#txtItemName").val();
-            if (itemNameRegEx.test(name)) {
-                let price = $("#txtItemPrice").val();
-                if (priceRegEx.test(price)) {
-                    let qty = $("#txtItemQuantity").val();
-                    if (qtyRegEx.test(qty)) {
-                        $(".itemSaveBtn").attr('disabled', false);
-                    } else {
-                        $(".itemSaveBtn").attr('disabled', true);
-                        return false;
-                    }
-                } else {
-                    $(".itemSaveBtn").attr('disabled', true);
-                    return false;
-                }
-            } else {
-                $(".itemSaveBtn").attr('disabled', true);
-                return false;
-            }
-        } else {
-            $(".itemSaveBtn").attr('disabled', true);
-            return false;
-        }
-    }
-
-    $(".btn2").click(function () {
-        saveItem();
-    })
-
-    function saveItem() {
-        let itemCode = $("#txtItemCode").val();
-        let itemName = $("#txtItemName").val();
-        let itemPrice = $("#txtItemPrice").val();
-        let itemQuantity = $("#txtItemQuantity").val();
-        let row2 = `<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQuantity}</td></tr>`;
-        $("#tbl2").append(row2);
-
-        $("#tbl2>tr").click(function () {
-            //let code = $(this).children().eq(0).text();
-            let itemName = $(this).children().eq(1).text();
-            let price = $(this).children().eq(2).text();
-            let qty = $(this).children().eq(3).text();
-
-            $(".tempItemName").val(itemName);
-            $(".tempItemPrice").val(price);
-            $(".tempItemQty").val(qty);
-        })
-    }
-
-
-    //Order======================================================================================================
-    $(".saveOrderBtn").attr('disabled', true)
-    var discountRegEx = /^[0-9]{2,10}$/;
-    var qtyRegEx = /^[0-9]{1,20}$/;
-
-    $("#selectCustomer").change(function () {
-        let temp=$("#selectCustomer").val();
-        btnAction3();
-        if(temp!="Select Customer") {
-            $("#selectCustomer").css('border', '2px solid green');
-        }
-    })
-    $("#selectItem").change(function () {
-        let temp=$("#selectItem").val();
-        btnAction3();
-        if(temp!="Select Item") {
-            $("#selectItem").css('border', '2px solid green');
-        }
-    })
-
-
-    $("#Quantity").keyup(function (event) {
-        let temp = checkQuantity();
-        btnAction3();
-        if ("Enter" == event.key & temp == true) {
-            $("#Discount").focus();
-        }
-    })
-
-    function checkQuantity() {
-        let temp = $("#Quantity").val();
-        if (qtyRegEx.test(temp)) {
-            $("#Quantity").css('border', '2px solid green');
-            return true;
-        } else {
-            $("#Quantity").css('border', '2px solid red');
-        }
-    }
-
-    $("#Discount").keyup(function (event) {
-        let temp = checkDiscount();
-        btnAction3();
-        if ("Enter" == event.key & temp == true) {
-            saveorder()
-        }
-    })
-
-    function checkDiscount() {
-        let temp = $("#Discount").val();
-        if (discountRegEx.test(temp)) {
-            $("#Discount").css('border', '2px solid green');
-            return true;
-        } else {
-            $("#Discount").css('border', '2px solid red');
-        }
-    }
-
-    function btnAction3() {
-        let selectedCustomer = $("#selectCustomer").val();
-        if (selectedCustomer!="Select Customer") {
-            let selectedItem = $("#selectItem").val();
-            if (selectedItem!="Select Item") {
-                let qty = $("#Quantity").val();
-                if (qtyRegEx.test(qty)) {
-                    let discount = $("#Discount").val();
-                    if (discountRegEx.test(discount)) {
-                        $(".saveOrderBtn").attr('disabled', false);
-                    } else {
-                        $(".saveOrderBtn").attr('disabled', true);
-                        return false;
-                    }
-                } else {
-                    $(".saveOrderBtn").attr('disabled', true);
-                    return false;
-                }
-            } else {
-                $(".saveOrderBtn").attr('disabled', true);
-                return false;
-            }
-        } else {
-            $(".saveOrderBtn").attr('disabled', true);
-            return false;
-        }
-
-    }
-
-    $(".saveOrderBtn").click(function () {
-        saveorder();
-    })
-
-    function saveorder() {
-        let selectedCustomer = $("#selectCustomer").val();
-        let selectedItem = $("#selectItem").val();
-        let quantity = $("#Quantity").val();
-        let discount = $("#Discount").val();
-        let row3 = `<tr><td>1</td><td>${discount}</td><td>${selectedCustomer}</td><td>${selectedItem}</td><td>${quantity}</td><td>1000</td></tr>`;
-
-        $("#tbl3").append(row3);
-        $("#tbl3>tr").click(function () {
-            let customerName = $(this).children().eq(2).text();
-            let itemName = $(this).children().eq(3).text();
-            let price = $(this).children().eq(5).text();
-
-            $(".tempCustomerName").val(customerName);
-            $(".tempItemName").val(itemName);
-            $(".tempOrderPrice").val(price);
-        })
-    }
 </script>
-<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
