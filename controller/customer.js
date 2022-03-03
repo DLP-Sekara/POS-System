@@ -2,7 +2,8 @@
 //Customer======================================================================================================
 $("#saveBtn").attr('disabled', true);
 $(".custSearchbtn").attr('disabled', true);
-
+$(".updateBtn").attr('disabled', true);
+var tempCustomer;
 var nicRegEx = /^[0-9]{10}$/;
 var nameRegEx = /^[A-z ]{5,20}$/;
 var addressRegEx = /^[A-z ]{5,20}$/;
@@ -132,16 +133,11 @@ function saveCustomer() {
     let custAddress = $(".txtADDRESS").val();
     let custContact = $(".txtCONTACT").val();
 
-    /*var customerObject = {
-        id: custNic,
-        name: custName,
-        address: custAddress,
-        contact: custContact
-    }*/
-    //var customerObj=new customerObject(custNic,custName,custAddress,custContact);
-    customer.push(new customerObject(custNic,custName,custAddress,custContact));
+    var customerObj=new customerObject(custNic,custName,custAddress,custContact);
+    customer.push(customerObj);
     addCustomerToTable();
     clearTextField();
+    console.log(customer);
     $("#saveBtn").attr('disabled', true);
     $("#tbl1>tr").click(function () {
         $("#saveBtn").attr('disabled', true);
@@ -150,6 +146,7 @@ function saveCustomer() {
         let custAddrress = $(this).children().eq(2).text();
         let custContact = $(this).children().eq(3).text();
 
+        tempCustomer=custID;
         $(".txtNIC").val(custID);
         $(".txtNAME").val(custName);
         $(".txtADDRESS").val(custAddrress);
@@ -159,6 +156,7 @@ function saveCustomer() {
         $(".txtCustAddressUp").val(custAddrress);
         $(".txtCustContactUp").val(custContact);
 
+        $(".updateBtn").attr('disabled', false);
     })
     $("#tbl1>tr").dblclick(function () {
         $(this).remove();
@@ -185,6 +183,36 @@ function clearTextField() {
 
 }
 
+//=============update===============//
+
+$(".updateBtn").click(function () {
+    let custNic = $(".txtNIC").val();
+    let custName = $(".txtNAME").val();
+    let custAddress = $(".txtADDRESS").val();
+    let custContact = $(".txtCONTACT").val();
+    var customerObj=new customerObject(custNic,custName,custAddress,custContact);
+
+    updateCustomer(tempCustomer,customerObj);
+    console.log(customer);
+    addCustomerToTable();
+    clearTextField();
+    $(".updateBtn").attr('disabled', false);
+})
+
+function updateCustomer(tempCustomer,customerObj) {
+    for(var i=0;i<customer.length;i++){
+        if(customer[i].id==tempCustomer){
+            customer[i].id=customerObj.id;
+            customer[i].name=customerObj.name;
+            customer[i].address=customerObj.address;
+            customer[i].contact=customerObj.contact;
+        }else{
+            return;
+        }
+    }
+    console.log(tempCustomer)
+    console.log(customerObj)
+}
 //============search area===========//
 $(".custSearchField").keyup(function (event) {
     var temp = $(".custSearchField").val();
@@ -235,6 +263,25 @@ function searchCustomer(temp) {
 $(".seeAllBtn").click(function () {
     clearTextField();
     addCustomerToTable();
+    $("#tbl1>tr").click(function () {
+        $("#saveBtn").attr('disabled', true);
+        let custID = $(this).children().eq(0).text();
+        let custName = $(this).children().eq(1).text();
+        let custAddrress = $(this).children().eq(2).text();
+        let custContact = $(this).children().eq(3).text();
+
+        tempCustomer=custID;
+        $(".txtNIC").val(custID);
+        $(".txtNAME").val(custName);
+        $(".txtADDRESS").val(custAddrress);
+        $(".txtCONTACT").val(custContact);
+
+        $(".txtCustNameUp").val(custName);
+        $(".txtCustAddressUp").val(custAddrress);
+        $(".txtCustContactUp").val(custContact);
+
+        $(".updateBtn").attr('disabled', false);
+    })
 })
 
 //============delete area===========//
