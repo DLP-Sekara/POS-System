@@ -1,4 +1,4 @@
-function customerObject(custNic,custName,custAddress,custContact) {
+function CustomerObject(custNic,custName,custAddress,custContact) {
     this.id= custNic;
     this.name= custName;
     this.address= custAddress;

@@ -123,6 +123,8 @@ function btnAction1() {
     }
 }
 
+//=============save===============//
+
 $(".btn1").click(function () {
     saveCustomer();
 })
@@ -133,11 +135,11 @@ function saveCustomer() {
     let custAddress = $(".txtADDRESS").val();
     let custContact = $(".txtCONTACT").val();
 
-    var customerObj=new customerObject(custNic,custName,custAddress,custContact);
+    var customerObj=new CustomerObject(custNic,custName,custAddress,custContact);
     customer.push(customerObj);
     addCustomerToTable();
     clearTextField();
-    console.log(customer);
+    //console.log(customer);
     $("#saveBtn").attr('disabled', true);
     $("#tbl1>tr").click(function () {
         $("#saveBtn").attr('disabled', true);
@@ -145,7 +147,6 @@ function saveCustomer() {
         let custName = $(this).children().eq(1).text();
         let custAddrress = $(this).children().eq(2).text();
         let custContact = $(this).children().eq(3).text();
-
         tempCustomer=custID;
         $(".txtNIC").val(custID);
         $(".txtNAME").val(custName);
@@ -161,6 +162,7 @@ function saveCustomer() {
     $("#tbl1>tr").dblclick(function () {
         $(this).remove();
     })
+    console.log(customer);
 }
 
 function addCustomerToTable() {
@@ -190,13 +192,33 @@ $(".updateBtn").click(function () {
     let custName = $(".txtNAME").val();
     let custAddress = $(".txtADDRESS").val();
     let custContact = $(".txtCONTACT").val();
-    var customerObj=new customerObject(custNic,custName,custAddress,custContact);
+    var customerObj=new CustomerObject(custNic,custName,custAddress,custContact);
 
     updateCustomer(tempCustomer,customerObj);
-    console.log(customer);
-    addCustomerToTable();
+
     clearTextField();
-    $(".updateBtn").attr('disabled', false);
+    addCustomerToTable();
+    $("#tbl1>tr").click(function () {
+        $("#saveBtn").attr('disabled', true);
+        let custID = $(this).children().eq(0).text();
+        let custName = $(this).children().eq(1).text();
+        let custAddrress = $(this).children().eq(2).text();
+        let custContact = $(this).children().eq(3).text();
+        tempCustomer=custID;
+        $(".txtNIC").val(custID);
+        $(".txtNAME").val(custName);
+        $(".txtADDRESS").val(custAddrress);
+        $(".txtCONTACT").val(custContact);
+
+        $(".txtCustNameUp").val(custName);
+        $(".txtCustAddressUp").val(custAddrress);
+        $(".txtCustContactUp").val(custContact);
+
+        $(".updateBtn").attr('disabled', false);
+    })
+    $("#saveBtn").attr('disabled', true);
+    $(".updateBtn").attr('disabled', true);
+    console.log(customer);
 })
 
 function updateCustomer(tempCustomer,customerObj) {
@@ -206,14 +228,11 @@ function updateCustomer(tempCustomer,customerObj) {
             customer[i].name=customerObj.name;
             customer[i].address=customerObj.address;
             customer[i].contact=customerObj.contact;
-        }else{
-            return;
         }
     }
-    console.log(tempCustomer)
-    console.log(customerObj)
 }
-//============search area===========//
+
+//============search & getAll===========//
 $(".custSearchField").keyup(function (event) {
     var temp = $(".custSearchField").val();
     if (temp != null) {
@@ -239,7 +258,7 @@ $(".custSearchbtn").click(function () {
         let custName = $(this).children().eq(1).text();
         let custAddrress = $(this).children().eq(2).text();
         let custContact = $(this).children().eq(3).text();
-
+        tempCustomer=custID;
         $(".txtNIC").val(custID);
         $(".txtNAME").val(custName);
         $(".txtADDRESS").val(custAddrress);
@@ -270,7 +289,6 @@ $(".seeAllBtn").click(function () {
         let custAddrress = $(this).children().eq(2).text();
         let custContact = $(this).children().eq(3).text();
 
-        tempCustomer=custID;
         $(".txtNIC").val(custID);
         $(".txtNAME").val(custName);
         $(".txtADDRESS").val(custAddrress);
@@ -284,7 +302,7 @@ $(".seeAllBtn").click(function () {
     })
 })
 
-//============delete area===========//
+//============delete===========//
 $(".dltBtn").click(function () {
 
 })
