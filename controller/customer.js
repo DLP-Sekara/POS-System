@@ -353,3 +353,28 @@ function deleteCustomer(temp) {
         }
     }
 }
+
+
+$(".refreshBtn").click(function () {
+    clearTextField();
+    addCustomerToTable();
+    $("#tbl1>tr").click(function () {
+        $("#saveBtn").attr('disabled', true);
+        let custID = $(this).children().eq(0).text();
+        let custName = $(this).children().eq(1).text();
+        let custAddrress = $(this).children().eq(2).text();
+        let custContact = $(this).children().eq(3).text();
+
+        $(".txtNIC").val(custID);
+        $(".txtNAME").val(custName);
+        $(".txtADDRESS").val(custAddrress);
+        $(".txtCONTACT").val(custContact);
+
+        $(".txtCustNicUp").val(custID);
+        $(".txtCustNameUp").val(custName);
+        $(".txtCustAddressUp").val(custAddrress);
+        $(".txtCustContactUp").val(custContact);
+
+        $(".updateBtn").attr('disabled', false);
+    })
+})

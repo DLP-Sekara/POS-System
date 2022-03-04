@@ -40,9 +40,11 @@
 }
 
 .f1 {
-    padding-top: 20px;
+    padding-top: 0px;
 }
-
+.f1>label{
+    font-size: 12px;
+}
 .f2 {
     padding-top: 20px;
 }
