@@ -1,4 +1,3 @@
-
 //Customer======================================================================================================
 $("#saveBtn").attr('disabled', true);
 $(".custSearchbtn").attr('disabled', true);
@@ -135,34 +134,47 @@ function saveCustomer() {
     let custAddress = $(".txtADDRESS").val();
     let custContact = $(".txtCONTACT").val();
 
-    var customerObj=new CustomerObject(custNic,custName,custAddress,custContact);
-    customer.push(customerObj);
-    addCustomerToTable();
-    clearTextField();
-    //console.log(customer);
-    $("#saveBtn").attr('disabled', true);
-    $("#tbl1>tr").click(function () {
+    if (customerAvailability(custNic)) {
+        alert("Customer Already Exists")
+    } else {
+        var customerObj = new CustomerObject(custNic, custName, custAddress, custContact);
+        customer.push(customerObj);
+        addCustomerToTable();
+        clearTextField();
+        //console.log(customer);
         $("#saveBtn").attr('disabled', true);
-        let custID = $(this).children().eq(0).text();
-        let custName = $(this).children().eq(1).text();
-        let custAddrress = $(this).children().eq(2).text();
-        let custContact = $(this).children().eq(3).text();
-        tempCustomer=custID;
-        $(".txtNIC").val(custID);
-        $(".txtNAME").val(custName);
-        $(".txtADDRESS").val(custAddrress);
-        $(".txtCONTACT").val(custContact);
+        $("#tbl1>tr").click(function () {
+            $("#saveBtn").attr('disabled', true);
+            let custID = $(this).children().eq(0).text();
+            let custName = $(this).children().eq(1).text();
+            let custAddrress = $(this).children().eq(2).text();
+            let custContact = $(this).children().eq(3).text();
+            tempCustomer = custID;
+            $(".txtNIC").val(custID);
+            $(".txtNAME").val(custName);
+            $(".txtADDRESS").val(custAddrress);
+            $(".txtCONTACT").val(custContact);
 
-        $(".txtCustNameUp").val(custName);
-        $(".txtCustAddressUp").val(custAddrress);
-        $(".txtCustContactUp").val(custContact);
+            $(".txtCustNicUp").val(custID);
+            $(".txtCustNameUp").val(custName);
+            $(".txtCustAddressUp").val(custAddrress);
+            $(".txtCustContactUp").val(custContact);
 
-        $(".updateBtn").attr('disabled', false);
-    })
-    $("#tbl1>tr").dblclick(function () {
-        $(this).remove();
-    })
-    console.log(customer);
+            $(".updateBtn").attr('disabled', false);
+        })
+        $("#tbl1>tr").dblclick(function () {
+            $(this).remove();
+        })
+        console.log(customer);
+    }
+}
+
+function customerAvailability(custNic) {
+    for (var i = 0; i < customer.length; i++) {
+        if (customer[i].id == custNic) {
+            return true;
+        }
+    }
 }
 
 function addCustomerToTable() {
@@ -179,6 +191,7 @@ function clearTextField() {
     $(".txtADDRESS").val("");
     $(".txtCONTACT").val("");
 
+    $(".txtCustNicUp").val("");
     $(".txtCustNameUp").val("");
     $(".txtCustAddressUp").val("");
     $(".txtCustContactUp").val("");
@@ -192,9 +205,9 @@ $(".updateBtn").click(function () {
     let custName = $(".txtNAME").val();
     let custAddress = $(".txtADDRESS").val();
     let custContact = $(".txtCONTACT").val();
-    var customerObj=new CustomerObject(custNic,custName,custAddress,custContact);
+    var customerObj = new CustomerObject(custNic, custName, custAddress, custContact);
 
-    updateCustomer(tempCustomer,customerObj);
+    updateCustomer(tempCustomer, customerObj);
 
     clearTextField();
     addCustomerToTable();
@@ -204,12 +217,13 @@ $(".updateBtn").click(function () {
         let custName = $(this).children().eq(1).text();
         let custAddrress = $(this).children().eq(2).text();
         let custContact = $(this).children().eq(3).text();
-        tempCustomer=custID;
+        tempCustomer = custID;
         $(".txtNIC").val(custID);
         $(".txtNAME").val(custName);
         $(".txtADDRESS").val(custAddrress);
         $(".txtCONTACT").val(custContact);
 
+        $(".txtCustNicUp").val(custID);
         $(".txtCustNameUp").val(custName);
         $(".txtCustAddressUp").val(custAddrress);
         $(".txtCustContactUp").val(custContact);
@@ -221,13 +235,13 @@ $(".updateBtn").click(function () {
     console.log(customer);
 })
 
-function updateCustomer(tempCustomer,customerObj) {
-    for(var i=0;i<customer.length;i++){
-        if(customer[i].id==tempCustomer){
-            customer[i].id=customerObj.id;
-            customer[i].name=customerObj.name;
-            customer[i].address=customerObj.address;
-            customer[i].contact=customerObj.contact;
+function updateCustomer(tempCustomer, customerObj) {
+    for (var i = 0; i < customer.length; i++) {
+        if (customer[i].id == tempCustomer) {
+            customer[i].id = customerObj.id;
+            customer[i].name = customerObj.name;
+            customer[i].address = customerObj.address;
+            customer[i].contact = customerObj.contact;
         }
     }
 }
@@ -258,12 +272,13 @@ $(".custSearchbtn").click(function () {
         let custName = $(this).children().eq(1).text();
         let custAddrress = $(this).children().eq(2).text();
         let custContact = $(this).children().eq(3).text();
-        tempCustomer=custID;
+        tempCustomer = custID;
         $(".txtNIC").val(custID);
         $(".txtNAME").val(custName);
         $(".txtADDRESS").val(custAddrress);
         $(".txtCONTACT").val(custContact);
 
+        $(".txtCustNicUp").val(custID);
         $(".txtCustNameUp").val(custName);
         $(".txtCustAddressUp").val(custAddrress);
         $(".txtCustContactUp").val(custContact);
@@ -294,6 +309,7 @@ $(".seeAllBtn").click(function () {
         $(".txtADDRESS").val(custAddrress);
         $(".txtCONTACT").val(custContact);
 
+        $(".txtCustNicUp").val(custID);
         $(".txtCustNameUp").val(custName);
         $(".txtCustAddressUp").val(custAddrress);
         $(".txtCustContactUp").val(custContact);
@@ -304,5 +320,36 @@ $(".seeAllBtn").click(function () {
 
 //============delete===========//
 $(".dltBtn").click(function () {
+    if(confirm("Are you sure you want to delete this?")) {
+        var temp = $(".txtCustNicUp").val();
+        deleteCustomer(temp);
+        clearTextField();
+        addCustomerToTable();
+        $("#tbl1>tr").click(function () {
+            $("#saveBtn").attr('disabled', true);
+            let custID = $(this).children().eq(0).text();
+            let custName = $(this).children().eq(1).text();
+            let custAddrress = $(this).children().eq(2).text();
+            let custContact = $(this).children().eq(3).text();
 
+            $(".txtNIC").val(custID);
+            $(".txtNAME").val(custName);
+            $(".txtADDRESS").val(custAddrress);
+            $(".txtCONTACT").val(custContact);
+
+            $(".txtCustNicUp").val(custID);
+            $(".txtCustNameUp").val(custName);
+            $(".txtCustAddressUp").val(custAddrress);
+            $(".txtCustContactUp").val(custContact);
+
+            $(".updateBtn").attr('disabled', false);
+        })
+    }
 })
+function deleteCustomer(temp) {
+    for (var i = 0; i < customer.length; i++) {
+        if (customer[i].id == temp) {
+            customer.splice(i,1);
+        }
+    }
+}
