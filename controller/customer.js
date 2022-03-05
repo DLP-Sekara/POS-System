@@ -311,7 +311,7 @@ $(".seeAllBtn").click(function () {
         let custName = $(this).children().eq(1).text();
         let custAddrress = $(this).children().eq(2).text();
         let custContact = $(this).children().eq(3).text();
-
+        tempCustomer = custID;
         $(".txtNIC").val(custID);
         $(".txtNAME").val(custName);
         $(".txtADDRESS").val(custAddrress);
@@ -340,7 +340,7 @@ $(".dltBtn").click(function () {
                 let custName = $(this).children().eq(1).text();
                 let custAddrress = $(this).children().eq(2).text();
                 let custContact = $(this).children().eq(3).text();
-
+                tempCustomer = custID;
                 $(".txtNIC").val(custID);
                 $(".txtNAME").val(custName);
                 $(".txtADDRESS").val(custAddrress);

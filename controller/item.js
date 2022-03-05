@@ -1,5 +1,10 @@
 //Item======================================================================================================
-$(".itemSaveBtn").attr('disabled', true);
+$(".ItemSaveBtn").attr('disabled', true);
+$("#itemSearchBtn").attr('disabled', true);
+$(".ItemUpdateBtn").attr('disabled', true);
+$(".itemDeleteBtn").attr('disabled', true);
+
+var tempItem;
 var codeRegEx = /^[0-9]{4}$/;
 var itemNameRegEx = /^[A-z ]{3,20}$/;
 var priceRegEx = /^[0-9]{2,10}$/;
@@ -92,26 +97,28 @@ function btnAction2() {
             if (priceRegEx.test(price)) {
                 let qty = $("#txtItemQuantity").val();
                 if (qtyRegEx.test(qty)) {
-                    $(".itemSaveBtn").attr('disabled', false);
+                    $(".ItemSaveBtn").attr('disabled', false);
                 } else {
-                    $(".itemSaveBtn").attr('disabled', true);
+                    $(".ItemSaveBtn").attr('disabled', true);
                     return false;
                 }
             } else {
-                $(".itemSaveBtn").attr('disabled', true);
+                $(".ItemSaveBtn").attr('disabled', true);
                 return false;
             }
         } else {
-            $(".itemSaveBtn").attr('disabled', true);
+            $(".ItemSaveBtn").attr('disabled', true);
             return false;
         }
     } else {
-        $(".itemSaveBtn").attr('disabled', true);
+        $(".ItemSaveBtn").attr('disabled', true);
         return false;
     }
 }
 
-$(".btn2").click(function () {
+//=============save===============//
+
+$(".ItemSaveBtn").click(function () {
     saveItem();
 })
 
@@ -120,18 +127,259 @@ function saveItem() {
     let itemName = $("#txtItemName").val();
     let itemPrice = $("#txtItemPrice").val();
     let itemQuantity = $("#txtItemQuantity").val();
-    let row2 = `<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQuantity}</td></tr>`;
-    $("#tbl2").append(row2);
 
+    if (itemAvailability(itemCode)) {
+        alert("Item Already Exists")
+    } else {
+        var itemObj = new ItemObject(itemCode, itemName, itemPrice, itemQuantity);
+        item.push(itemObj);
+        addItemToTable();
+        clearItemTextField();
+        //console.log(customer);
+        $(".ItemSaveBtn").attr('disabled', true);
+        $("#tbl2>tr").click(function () {
+            $(".ItemSaveBtn").attr('disabled', true);
+            let code = $(this).children().eq(0).text();
+            let itemName = $(this).children().eq(1).text();
+            let price = $(this).children().eq(2).text();
+            let qty = $(this).children().eq(3).text();
+            tempItem = code;
+            $("#txtItemCode").val(code);
+            $("#txtItemName").val(itemName);
+            $("#txtItemPrice").val(price);
+            $("#txtItemQuantity").val(qty);
+
+            $(".tempItemId").val(code);
+            $(".tempItemName").val(itemName);
+            $(".tempItemPrice").val(price);
+            $(".tempItemQty").val(qty);
+
+            $(".ItemUpdateBtn").attr('disabled', false);
+            $(".itemDeleteBtn").attr('disabled', false);
+        })
+        $("#tbl2>tr").dblclick(function () {
+            $(this).remove();
+        })
+        console.log(item);
+    }
+}
+
+function itemAvailability(itemCode) {
+    for (var i = 0; i < item.length; i++) {
+        if (item[i].code == itemCode) {
+            return true;
+        }
+    }
+}
+
+//=============update===============//
+
+$(".ItemUpdateBtn").click(function () {
+    let itemCode = $("#txtItemCode").val();
+    let itemName = $("#txtItemName").val();
+    let itemPrice = $("#txtItemPrice").val();
+    let itemQuantity = $("#txtItemQuantity").val();
+    var itemObj = new ItemObject(itemCode, itemName, itemPrice, itemQuantity);
+
+    updateItem(tempItem, itemObj);
+
+    clearItemTextField();
+    addItemToTable();
     $("#tbl2>tr").click(function () {
-        //let code = $(this).children().eq(0).text();
+        $(".ItemSaveBtn").attr('disabled', true);
+        let code = $(this).children().eq(0).text();
         let itemName = $(this).children().eq(1).text();
         let price = $(this).children().eq(2).text();
         let qty = $(this).children().eq(3).text();
+        tempItem = code;
+        $("#txtItemCode").val(code);
+        $("#txtItemName").val(itemName);
+        $("#txtItemPrice").val(price);
+        $("#txtItemQuantity").val(qty);
 
+        $(".tempItemId").val(code);
         $(".tempItemName").val(itemName);
         $(".tempItemPrice").val(price);
         $(".tempItemQty").val(qty);
+
+        $(".ItemUpdateBtn").attr('disabled', false);
+        $(".itemDeleteBtn").attr('disabled', false);
     })
+    $(".ItemSaveBtn").attr('disabled', true);
+    $(".ItemUpdateBtn").attr('disabled', true);
+    console.log(item);
+})
+
+function updateItem(tempItem, itemObj) {
+    for (var i = 0; i < item.length; i++) {
+        if (item[i].code == tempItem) {
+            item[i].code = itemObj.code;
+            item[i].name = itemObj.name;
+            item[i].price = itemObj.price;
+            item[i].qty = itemObj.qty;
+        }
+    }
 }
 
+//============search & getAll===========//
+$(".itemSearchField").keyup(function (event) {
+    var temp = $(".itemSearchField").val();
+    if (temp != null) {
+        $("#itemSearchBtn").attr('disabled', false);
+    } else {
+        $("#itemSearchBtn").attr('disabled', true);
+    }
+})
+
+$("#itemSearchBtn").click(function () {
+    var temp = $(".itemSearchField").val();
+    var result = searchItem(temp);
+    if (result != null) {
+        $("#tbl2").empty();
+        let row1 = `<tr><td>${result.code}</td><td>${result.name}</td><td>${result.price}</td><td>${result.qty}</td></tr>`;
+        $("#tbl2").append(row1);
+    } else {
+        alert("No Such a Item")
+    }
+    $("#tbl2>tr").click(function () {
+        $(".ItemSaveBtn").attr('disabled', true);
+        let code = $(this).children().eq(0).text();
+        let itemName = $(this).children().eq(1).text();
+        let price = $(this).children().eq(2).text();
+        let qty = $(this).children().eq(3).text();
+        tempItem = code;
+        $("#txtItemCode").val(code);
+        $("#txtItemName").val(itemName);
+        $("#txtItemPrice").val(price);
+        $("#txtItemQuantity").val(qty);
+
+        $(".tempItemId").val(code);
+        $(".tempItemName").val(itemName);
+        $(".tempItemPrice").val(price);
+        $(".tempItemQty").val(qty);
+
+        $(".ItemUpdateBtn").attr('disabled', false);
+        $(".itemDeleteBtn").attr('disabled', false);
+    })
+})
+
+function searchItem(temp) {
+    for (var i = 0; i < item.length; i++) {
+        if ((item[i].code == temp) | (item[i].name == temp) | (item[i].price == temp) | (item[i].qty == temp)) {
+            return item[i];
+        }
+    }
+}
+
+$(".itemSeeAllBtn").click(function () {
+    clearItemTextField();
+    addItemToTable();
+    $("#tbl2>tr").click(function () {
+        $(".ItemSaveBtn").attr('disabled', true);
+        let code = $(this).children().eq(0).text();
+        let itemName = $(this).children().eq(1).text();
+        let price = $(this).children().eq(2).text();
+        let qty = $(this).children().eq(3).text();
+        tempItem = code;
+        $("#txtItemCode").val(code);
+        $("#txtItemName").val(itemName);
+        $("#txtItemPrice").val(price);
+        $("#txtItemQuantity").val(qty);
+
+        $(".tempItemId").val(code);
+        $(".tempItemName").val(itemName);
+        $(".tempItemPrice").val(price);
+        $(".tempItemQty").val(qty);
+
+        $(".ItemUpdateBtn").attr('disabled', false);
+        $(".itemDeleteBtn").attr('disabled', false);
+    })
+})
+
+//============delete===========//
+$(".itemDeleteBtn").click(function () {
+    var temp = $(".tempItemId").val();
+    if (confirm("Are you sure you want to delete this?")) {
+        deleteItem(temp);
+        clearItemTextField();
+        addItemToTable();
+        $("#tbl2>tr").click(function () {
+            $(".ItemSaveBtn").attr('disabled', true);
+            let code = $(this).children().eq(0).text();
+            let itemName = $(this).children().eq(1).text();
+            let price = $(this).children().eq(2).text();
+            let qty = $(this).children().eq(3).text();
+            tempItem = code;
+            $("#txtItemCode").val(code);
+            $("#txtItemName").val(itemName);
+            $("#txtItemPrice").val(price);
+            $("#txtItemQuantity").val(qty);
+
+            $(".tempItemId").val(code);
+            $(".tempItemName").val(itemName);
+            $(".tempItemPrice").val(price);
+            $(".tempItemQty").val(qty);
+
+            $(".ItemUpdateBtn").attr('disabled', false);
+            $(".itemDeleteBtn").attr('disabled', false);
+        })
+    }
+})
+function deleteItem(temp) {
+    for (var i = 0; i < item.length; i++) {
+        if (item[i].code == temp) {
+            item.splice(i,1);
+        }
+    }
+}
+
+//==============others=============//
+function addItemToTable() {
+    $("#tbl2").empty();
+    for (var i = 0; i < item.length; i++) {
+        let row2 = `<tr><td>${item[i].code}</td><td>${item[i].name}</td><td>${item[i].price}</td><td>${item[i].qty}</td></tr>`;
+        $("#tbl2").append(row2);
+    }
+}
+
+function clearItemTextField() {
+    $("#txtItemCode").val("");
+    $("#txtItemName").val("");
+    $("#txtItemPrice").val("");
+    $("#txtItemQuantity").val("");
+
+    $(".tempItemId").val("");
+    $(".tempItemName").val("");
+    $(".tempItemPrice").val("");
+    $(".tempItemQty").val("");
+
+    $(".ItemSaveBtn").attr('disabled', true);
+    $("#itemSearchBtn").attr('disabled', true);
+    $(".ItemUpdateBtn").attr('disabled', true);
+    $(".itemDeleteBtn").attr('disabled', true);
+}
+
+$(".ItemRefreshBtn").click(function () {
+    clearItemTextField();
+    addItemToTable();
+    $("#tbl2>tr").click(function () {
+        $(".ItemSaveBtn").attr('disabled', true);
+        let code = $(this).children().eq(0).text();
+        let itemName = $(this).children().eq(1).text();
+        let price = $(this).children().eq(2).text();
+        let qty = $(this).children().eq(3).text();
+        tempItem = code;
+        $("#txtItemCode").val(code);
+        $("#txtItemName").val(itemName);
+        $("#txtItemPrice").val(price);
+        $("#txtItemQuantity").val(qty);
+
+        $(".tempItemId").val(code);
+        $(".tempItemName").val(itemName);
+        $(".tempItemPrice").val(price);
+        $(".tempItemQty").val(qty);
+
+        $(".ItemUpdateBtn").attr('disabled', false);
+        $(".itemDeleteBtn").attr('disabled', false);
+    })
+})
