@@ -28,10 +28,12 @@
 .dltTxt {
     color: #161B36;
     position: relative;
-    top: -20px;
+    top: -45px;
     font-size: 13px;
 }
-
+#dltLabel{
+    font-size: 16px;
+}
 #tableFrame1, #tableFrame2, #tableFrame3 {
     position: relative;
     margin: auto;
@@ -89,17 +91,22 @@
     #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
         top: 100px;
     }
-}
-
-@media all and  (max-device-width: 1024px) {
     .dltTxt {
-        top: 10px;
+        top: 20px;
     !important;
     }
+    .dltBtn {
+        top: 20px;
+    }
+    #tableFrame1{
+        top: 140px;
+    }
 }
 
 @media all and  (max-device-width: 1024px) {
-    .dltBtn {
-        top: 10px;
-    }
+
+}
+
+@media all and  (max-device-width: 1024px) {
+
 }

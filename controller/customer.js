@@ -2,6 +2,7 @@
 $("#saveBtn").attr('disabled', true);
 $(".custSearchbtn").attr('disabled', true);
 $(".updateBtn").attr('disabled', true);
+$(".dltBtn").attr('disabled', true);
 var tempCustomer;
 var nicRegEx = /^[0-9]{10}$/;
 var nameRegEx = /^[A-z ]{5,20}$/;
@@ -161,6 +162,7 @@ function saveCustomer() {
             $(".txtCustContactUp").val(custContact);
 
             $(".updateBtn").attr('disabled', false);
+            $(".dltBtn").attr('disabled', false);
         })
         $("#tbl1>tr").dblclick(function () {
             $(this).remove();
@@ -195,7 +197,10 @@ function clearTextField() {
     $(".txtCustNameUp").val("");
     $(".txtCustAddressUp").val("");
     $(".txtCustContactUp").val("");
-
+    $("#saveBtn").attr('disabled', true);
+    $(".custSearchbtn").attr('disabled', true);
+    $(".updateBtn").attr('disabled', true);
+    $(".dltBtn").attr('disabled', true);
 }
 
 //=============update===============//
@@ -229,6 +234,8 @@ $(".updateBtn").click(function () {
         $(".txtCustContactUp").val(custContact);
 
         $(".updateBtn").attr('disabled', false);
+        $(".dltBtn").attr('disabled', false);
+
     })
     $("#saveBtn").attr('disabled', true);
     $(".updateBtn").attr('disabled', true);
@@ -282,7 +289,8 @@ $(".custSearchbtn").click(function () {
         $(".txtCustNameUp").val(custName);
         $(".txtCustAddressUp").val(custAddrress);
         $(".txtCustContactUp").val(custContact);
-
+        $(".updateBtn").attr('disabled', false);
+        $(".dltBtn").attr('disabled', false);
     })
 })
 
@@ -315,36 +323,38 @@ $(".seeAllBtn").click(function () {
         $(".txtCustContactUp").val(custContact);
 
         $(".updateBtn").attr('disabled', false);
+        $(".dltBtn").attr('disabled', false);
     })
 })
 
 //============delete===========//
 $(".dltBtn").click(function () {
-    if(confirm("Are you sure you want to delete this?")) {
-        var temp = $(".txtCustNicUp").val();
-        deleteCustomer(temp);
-        clearTextField();
-        addCustomerToTable();
-        $("#tbl1>tr").click(function () {
-            $("#saveBtn").attr('disabled', true);
-            let custID = $(this).children().eq(0).text();
-            let custName = $(this).children().eq(1).text();
-            let custAddrress = $(this).children().eq(2).text();
-            let custContact = $(this).children().eq(3).text();
+    var temp = $(".txtCustNicUp").val();
+        if (confirm("Are you sure you want to delete this?")) {
+            deleteCustomer(temp);
+            clearTextField();
+            addCustomerToTable();
+            $("#tbl1>tr").click(function () {
+                $("#saveBtn").attr('disabled', true);
+                let custID = $(this).children().eq(0).text();
+                let custName = $(this).children().eq(1).text();
+                let custAddrress = $(this).children().eq(2).text();
+                let custContact = $(this).children().eq(3).text();
 
-            $(".txtNIC").val(custID);
-            $(".txtNAME").val(custName);
-            $(".txtADDRESS").val(custAddrress);
-            $(".txtCONTACT").val(custContact);
+                $(".txtNIC").val(custID);
+                $(".txtNAME").val(custName);
+                $(".txtADDRESS").val(custAddrress);
+                $(".txtCONTACT").val(custContact);
 
-            $(".txtCustNicUp").val(custID);
-            $(".txtCustNameUp").val(custName);
-            $(".txtCustAddressUp").val(custAddrress);
-            $(".txtCustContactUp").val(custContact);
+                $(".txtCustNicUp").val(custID);
+                $(".txtCustNameUp").val(custName);
+                $(".txtCustAddressUp").val(custAddrress);
+                $(".txtCustContactUp").val(custContact);
 
-            $(".updateBtn").attr('disabled', false);
-        })
-    }
+                $(".updateBtn").attr('disabled', false);
+                $(".dltBtn").attr('disabled', false);
+            })
+        }
 })
 function deleteCustomer(temp) {
     for (var i = 0; i < customer.length; i++) {
@@ -354,7 +364,7 @@ function deleteCustomer(temp) {
     }
 }
 
-
+//==============others=============//
 $(".refreshBtn").click(function () {
     clearTextField();
     addCustomerToTable();
@@ -376,5 +386,6 @@ $(".refreshBtn").click(function () {
         $(".txtCustContactUp").val(custContact);
 
         $(".updateBtn").attr('disabled', false);
+        $(".dltBtn").attr('disabled', false);
     })
 })
