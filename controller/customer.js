@@ -127,6 +127,7 @@ function btnAction1() {
 
 $(".btn1").click(function () {
     saveCustomer();
+
 })
 
 function saveCustomer() {

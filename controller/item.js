@@ -160,7 +160,7 @@ function saveItem() {
         $("#tbl2>tr").dblclick(function () {
             $(this).remove();
         })
-        console.log(item);
+
     }
 }
 
