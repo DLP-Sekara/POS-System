@@ -2,7 +2,7 @@
 $(".saveOrderBtn").attr('disabled', true)
 var discountRegEx = /^[0-9]{2,10}$/;
 var qtyRegEx = /^[0-9]{1,20}$/;
-$('#selectCustomer,#selectItem,#Quantity,#Discount').on('keydown', function (event) {
+$('#selectCustomer,#selectItem,#Quantity').on('keydown', function (event) {
     if (event.key == "Tab") {
         event.preventDefault();
     }
@@ -42,7 +42,7 @@ function checkQuantity() {
     }
 }
 
-$("#Discount").keyup(function (event) {
+/*$("#Discount").keyup(function (event) {
     let temp = checkDiscount();
     btnAction3();
     if ("Enter" == event.key & temp == true) {
@@ -58,7 +58,7 @@ function checkDiscount() {
     } else {
         $("#Discount").css('border', '2px solid red');
     }
-}
+}*/
 
 function btnAction3() {
     let selectedCustomer = $("#selectCustomer").val();
@@ -67,13 +67,7 @@ function btnAction3() {
         if (selectedItem != "Select Item") {
             let qty = $("#Quantity").val();
             if (qtyRegEx.test(qty)) {
-                let discount = $("#Discount").val();
-                if (discountRegEx.test(discount)) {
                     $(".saveOrderBtn").attr('disabled', false);
-                } else {
-                    $(".saveOrderBtn").attr('disabled', true);
-                    return false;
-                }
             } else {
                 $(".saveOrderBtn").attr('disabled', true);
                 return false;

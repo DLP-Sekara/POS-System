@@ -31,9 +31,32 @@
     top: -45px;
     font-size: 13px;
 }
-#dltLabel,#dltLabel2{
+
+.tempOrderPrice {
+    position: relative;
+    top: 15px;
+}
+
+/*#sep2 {
+    height: 2px;
+    width: 282px;
+    left: 30px;
+    top: -70px;
+    position: relative;
+}*/
+
+#searchField {
+    position: relative;
+    top: -20px;
+}
+
+#dltLabel, #dltLabel2 {
     font-size: 16px;
 }
+/*#dltLabel3{
+    font-size: 16px;
+    top: -70px;
+}*/
 #tableFrame1, #tableFrame2, #tableFrame3 {
     position: relative;
     margin: auto;
@@ -44,9 +67,11 @@
 .f1 {
     padding-top: 0px;
 }
-.f1>label{
+
+.f1 > label {
     font-size: 12px;
 }
+
 .f2 {
     padding-top: 20px;
 }
@@ -55,13 +80,13 @@
     margin-top: 10px;
 }
 
-.dltBtn,.itemDeleteBtn {
+.dltBtn, .itemDeleteBtn{
     position: relative;
     top: 28px;
 }
 
 .f3 {
-    margin-top: 20px;
+    padding-top: 0px;
 }
 
 .f4 {
@@ -87,27 +112,52 @@
     background-color: #74b9ff;
 }
 
+.orderAddBtn{
+    position: relative;
+    top: -40px;
+}
+/*.orderDeleteArea{
+    position: relative;
+    top: 80px;
+}*/
+.OrderDltBtn{
+    top: 60px;
+    position: relative;
+}
+.purchaseArea{
+    position: relative;
+    top: 0px;
+    left: 60px;
+}
+.dateLbl{
+   right: 40px;
+    position: relative;
+}
+
 @media all and  (max-device-width: 1024px) {
     #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
-        top: 100px;
+        top: 130px;
     }
+
     .dltTxt {
         top: 20px;
     !important;
     }
-    .dltBtn,.itemDeleteBtn {
+
+    .dltBtn, .itemDeleteBtn {
         top: 20px;
     }
-    #tableFrame1,#tableFrame2{
-        top: 140px;
+
+    #tableFrame1, #tableFrame2,#tableFrame3 {
+        top: 170px;
     }
-}
-
-@media all and  (max-device-width: 1024px) {
-
-
-}
-
-@media all and  (max-device-width: 1024px) {
-
+    #searchField{
+        top: 20px;
+    }
+    #sep2{
+        display: none;
+    }
+    .dateLbl{
+        display: none;
+    }
 }
