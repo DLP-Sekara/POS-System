@@ -3,6 +3,7 @@ $(".saveOrderBtn").attr('disabled', true)
 $(".OrderDltBtn").attr('disabled', true)
 //$(".purchaseBtn").attr('disabled', true)
 getCustomerNames();
+var total=0;
 var discountRegEx = /^[0-9]{2,10}$/;
 var qtyRegEx = /^[0-9]{1,20}$/;
 $('#selectCustomer,#selectItem,#Quantity').on('keydown', function (event) {
@@ -137,10 +138,12 @@ function checkItemAvailability(itemName) {
     }
 }
 function setTotalPriceToLable() {
-    var total=0;
+
     for (var i=0;i<orderDetail.length;i++){
-        total=total+orderDetail[i].totalPrice;
+        //total=0;
+        total+=orderDetail[i+1].totalPrice;
     }
+    console.log(total)
     $("#totalpriceLbl").text("Rs. "+total)
     $("#subTotalpriceLbl").text("Rs. "+total)
 }
@@ -150,28 +153,31 @@ $(".purchaseBtn").click(function () {
     makeOrder();
 })
 function makeOrder() {
+
             let oid=makeOrderId();
             let date=today;
             let selectedCustomer = $("#selectCustomer").val();
-            let totalPrice = $("#subTotalpriceLbl").val();
-            let orderDetails = quantity*tempItem1.price;
+            let totalPrice = $("#subTotalpriceLbl").text();
+            let orderDetail =getOrderDetail();
 
-            var orderObject=new OrderObject(oid,date,selectedCustomer,selectedItem,quantity,totalPrice);
-    orderObject.setItemName(selectedItem)
+            var orderObject=new OrderObject(oid,date,selectedCustomer,totalPrice,orderDetail);
      order.push(orderObject);
+     clearOrderDetails();
      console.log("order")
      console.log(order)
-    $("#tbl3>tr").click(function () {
-        let customerName = $(this).children().eq(2).text();
-        let itemName = $(this).children().eq(3).text();
-        let price = $(this).children().eq(5).text();
-
-        $(".tempCustomerName").val(customerName);
-        $(".tempItemName").val(itemName);
-        $(".tempOrderPrice").val(price);
-    })
+    clearField();
+  alert("Your order has been successfully added")
 }
-
+function getOrderDetail() {
+    var orderDetails=[];
+    for (var i=0;i<orderDetail.length;i++){
+        orderDetails[i]=orderDetail[i];
+    }
+    return orderDetails;
+}
+function clearOrderDetails() {
+    orderDetail.splice(0,orderDetail.length)
+}
 
 //========others==========//
 function getCustomerNames() {
@@ -195,6 +201,14 @@ function getItemNames() {
 
 $(".itemSelection").change(function () {
     setItemDetails();
+})
+$(".OrderRefreshBtn").click(function () {
+    clearField();
+})
+$(".OrderSeeAllBtn").click(function () {
+    $("#1stPage").css('display', 'none')
+    $("#2ndPage").css('display', 'block')
+    $("#3rdPage").css('display', 'none')
 })
 function setItemDetails() {
     var tempItemName=$(".itemSelection").val();
@@ -236,3 +250,26 @@ function makeOrderId() {
     var orderCount=order.length;
     return orderCount++;
 }
+function clearField() {
+    $("#tbl3").empty();
+    $("#selectCustomer").val("");
+    $("#selectItem").val("");
+    $("#Quantity").val("");
+
+    $(".itemCode").val("");
+    $(".itemName").val("");
+    $(".itemPrice").val("");
+    $(".itemQty").val("");
+    $(".itemCode,.itemName,.itemPrice,.itemQty").css("background-color","#e9ecef");
+
+    $("#totalpriceLbl").text("0000.00")
+    $("#subTotalpriceLbl").text("0000.00")
+}
+
+$(".txtCash").keyup(function () {
+     var cash=$(".txtCash").val()*1;
+     console.log(cash)
+     /*var totalPrice=$("#subTotalpriceLbl").text();
+    console.log(totalPrice)*/
+    $(".txtBalance").val( cash-total);
+})

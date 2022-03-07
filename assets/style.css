@@ -114,7 +114,7 @@
 
 .orderAddBtn{
     position: relative;
-    top: -40px;
+    top: 40px;
 }
 /*.orderDeleteArea{
     position: relative;
@@ -133,7 +133,12 @@
    right: 40px;
     position: relative;
 }
-
+.orderIdDropDown{
+    top: 15px;
+}
+.dropDownArea{
+    top: -30px;
+}
 @media all and  (max-device-width: 1024px) {
     #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
         top: 130px;
