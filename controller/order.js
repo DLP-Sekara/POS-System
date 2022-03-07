@@ -4,6 +4,7 @@ $(".OrderDltBtn").attr('disabled', true)
 //$(".purchaseBtn").attr('disabled', true)
 getCustomerNames();
 var total=0;
+var totalLbl=0;
 var discountRegEx = /^[0-9]{2,10}$/;
 var qtyRegEx = /^[0-9]{1,20}$/;
 $('#selectCustomer,#selectItem,#Quantity').on('keydown', function (event) {
@@ -138,14 +139,14 @@ function checkItemAvailability(itemName) {
     }
 }
 function setTotalPriceToLable() {
-
     for (var i=0;i<orderDetail.length;i++){
-        //total=0;
-        total+=orderDetail[i+1].totalPrice;
+        total+=orderDetail[i].totalPrice;
     }
     console.log(total)
     $("#totalpriceLbl").text("Rs. "+total)
     $("#subTotalpriceLbl").text("Rs. "+total)
+    totalLbl=total
+    total=0;
 }
 
 //========purchase==========//
@@ -264,12 +265,25 @@ function clearField() {
 
     $("#totalpriceLbl").text("0000.00")
     $("#subTotalpriceLbl").text("0000.00")
+
+    $(".txtCash").text("")
+    $(".txtDiscount").text("")
+    $(".txtBalance").text("")
+
+
 }
 
 $(".txtCash").keyup(function () {
-     var cash=$(".txtCash").val()*1;
-     console.log(cash)
-     /*var totalPrice=$("#subTotalpriceLbl").text();
-    console.log(totalPrice)*/
-    $(".txtBalance").val( cash-total);
+    setBalance();
+})
+function setBalance() {
+    var cash=$(".txtCash").val()*1;
+    $(".txtBalance").val( cash-totalLbl);
+}
+$(".txtDiscount").keyup(function () {
+    var discount=$(".txtDiscount").val();
+    var sub=totalLbl-(totalLbl/100)*discount;
+    totalLbl=sub;
+    $("#subTotalpriceLbl").text(sub);
+    setBalance();
 })
