@@ -5,8 +5,10 @@ $(".OrderDltBtn").attr('disabled', true)
 getCustomerNames();
 var total=0;
 var totalLbl=0;
+var totalLbl2=0;
 var discountRegEx = /^[0-9]{2,10}$/;
 var qtyRegEx = /^[0-9]{1,20}$/;
+var cashRegEx = /^[0-9]{1,20}$/;
 $('#selectCustomer,#selectItem,#Quantity').on('keydown', function (event) {
     if (event.key == "Tab") {
         event.preventDefault();
@@ -146,6 +148,7 @@ function setTotalPriceToLable() {
     $("#totalpriceLbl").text("Rs. "+total)
     $("#subTotalpriceLbl").text("Rs. "+total)
     totalLbl=total
+    totalLbl2=total
     total=0;
 }
 
@@ -154,20 +157,27 @@ $(".purchaseBtn").click(function () {
     makeOrder();
 })
 function makeOrder() {
+    var cashTemp=$(".txtCash").val()*1;
+    if(cashTemp<totalLbl2){
+        $(".txtCash").css('border','2px solid red')
+        alert("Insufficient balance")
 
-            let oid=makeOrderId();
-            let date=today;
-            let selectedCustomer = $("#selectCustomer").val();
-            let totalPrice = $("#subTotalpriceLbl").text();
-            let orderDetail =getOrderDetail();
+    }else {
+        let oid = makeOrderId();
+        let date = today;
+        let selectedCustomer = $("#selectCustomer").val();
+        let totalPrice = $("#subTotalpriceLbl").text();
+        let orderDetail = getOrderDetail();
 
-            var orderObject=new OrderObject(oid,date,selectedCustomer,totalPrice,orderDetail);
-     order.push(orderObject);
-     clearOrderDetails();
-     console.log("order")
-     console.log(order)
-    clearField();
-  alert("Your order has been successfully added")
+        var orderObject = new OrderObject(oid, date, selectedCustomer, totalPrice, orderDetail);
+        order.push(orderObject);
+        clearOrderDetails();
+        console.log("order")
+        console.log(order)
+        clearField();
+        alert("Your order has been successfully added")
+        $(".txtCash").css('border','2px solid #d8dde2')
+    }
 }
 function getOrderDetail() {
     var orderDetails=[];
@@ -266,24 +276,38 @@ function clearField() {
     $("#totalpriceLbl").text("0000.00")
     $("#subTotalpriceLbl").text("0000.00")
 
-    $(".txtCash").text("")
-    $(".txtDiscount").text("")
-    $(".txtBalance").text("")
+    $(".txtCash").val("")
+    $(".txtDiscount").val("")
+    $(".txtBalance").val("")
 
 
 }
 
 $(".txtCash").keyup(function () {
-    setBalance();
+        setBalance(totalLbl);
 })
-function setBalance() {
+function checkValidation() {
+    if (cashRegEx.test($(".txtCash").val())) {
+        $(".txtCash").css('border', '2px solid green');
+        return true;
+    } else {
+        $("#txtCustNic").css('border', '2px solid red');
+    }
+}
+function setBalance(totalLbl) {
     var cash=$(".txtCash").val()*1;
     $(".txtBalance").val( cash-totalLbl);
 }
 $(".txtDiscount").keyup(function () {
-    var discount=$(".txtDiscount").val();
-    var sub=totalLbl-(totalLbl/100)*discount;
-    totalLbl=sub;
-    $("#subTotalpriceLbl").text(sub);
-    setBalance();
+    setDiscount();
 })
+function setDiscount() {
+    var discount=$(".txtDiscount").val();
+    var sub=totalLbl-(totalLbl*discount)/100;
+
+    $("#subTotalpriceLbl").text("Rs. "+sub);
+    //totalLbl=sub;
+    totalLbl2=sub;
+    setBalance(sub);
+}
+
