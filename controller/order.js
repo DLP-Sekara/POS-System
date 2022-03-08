@@ -1,7 +1,7 @@
 //Order======================================================================================================
 $(".saveOrderBtn").attr('disabled', true)
 $(".OrderDltBtn").attr('disabled', true)
-//$(".purchaseBtn").attr('disabled', true)
+$(".purchaseBtn").attr('disabled', true)
 getCustomerNames();
 var total=0;
 var totalLbl=0;
@@ -177,6 +177,7 @@ function makeOrder() {
         clearField();
         alert("Your order has been successfully added")
         $(".txtCash").css('border','2px solid #d8dde2')
+        $(".txtDiscount").css('border','2px solid #d8dde2')
     }
 }
 function getOrderDetail() {
@@ -279,19 +280,45 @@ function clearField() {
     $(".txtCash").val("")
     $(".txtDiscount").val("")
     $(".txtBalance").val("")
-
+    $(".purchaseBtn").attr('disabled', true)
 
 }
 
 $(".txtCash").keyup(function () {
+    if (checkValidation()) {
+        $(".purchaseBtn").attr('disabled', false)
+    }else{
+        $(".purchaseBtn").attr('disabled', true)
+    }
         setBalance(totalLbl);
+
 })
+$(".txtDiscount").keyup(function () {
+    if (checkDiscountValidation()) {
+        if (checkValidation()) {
+            $(".purchaseBtn").attr('disabled', false)
+        }
+    }else{
+        $(".purchaseBtn").attr('disabled', true)
+    }
+
+
+})
+
 function checkValidation() {
     if (cashRegEx.test($(".txtCash").val())) {
         $(".txtCash").css('border', '2px solid green');
         return true;
     } else {
-        $("#txtCustNic").css('border', '2px solid red');
+        $("#txtCash").css('border', '2px solid red');
+    }
+}
+function checkDiscountValidation() {
+    if (cashRegEx.test($(".txtDiscount").val())) {
+        $(".txtDiscount").css('border', '2px solid green');
+        return true;
+    } else {
+        $("#txtDiscount").css('border', '2px solid red');
     }
 }
 function setBalance(totalLbl) {
