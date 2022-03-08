@@ -6,7 +6,6 @@ getCustomerNames();
 var total=0;
 var totalLbl=0;
 var totalLbl2=0;
-var discountRegEx = /^[0-9]{2,10}$/;
 var qtyRegEx = /^[0-9]{1,20}$/;
 var cashRegEx = /^[0-9]{1,20}$/;
 $('#selectCustomer,#selectItem,#Quantity').on('keydown', function (event) {
@@ -161,25 +160,29 @@ function makeOrder() {
     if(cashTemp<totalLbl2){
         $(".txtCash").css('border','2px solid red')
         alert("Insufficient balance")
-
     }else {
-        let oid = makeOrderId();
+        let oid ="Order-"+makeOrderId();
         let date = today;
         let selectedCustomer = $("#selectCustomer").val();
         let totalPrice = $("#subTotalpriceLbl").text();
+        let cash = $(".txtCash").val();
+        let discount = $(".txtDiscount").val();
         let orderDetail = getOrderDetail();
 
-        var orderObject = new OrderObject(oid, date, selectedCustomer, totalPrice, orderDetail);
+        var orderObject = new OrderObject(oid, date, selectedCustomer, totalPrice,cash,discount, orderDetail);
         order.push(orderObject);
+        setOrderDetailsToDropDown();
         clearOrderDetails();
         console.log("order")
         console.log(order)
         clearField();
+
         alert("Your order has been successfully added")
         $(".txtCash").css('border','2px solid #d8dde2')
         $(".txtDiscount").css('border','2px solid #d8dde2')
     }
 }
+
 function getOrderDetail() {
     var orderDetails=[];
     for (var i=0;i<orderDetail.length;i++){
@@ -211,6 +214,43 @@ function getItemNames() {
 
 }
 
+function setOrderDetailsToDropDown() {
+    $('.orderIdDropDownContent').empty();
+    $(".orderIdDropDownContent").append($('<option>', { text:"Select Order"}))
+    for (var i=0;i<order.length;i++){
+        $(".orderIdDropDownContent").append($('<option>', { text:order[i].oID}))
+    }
+
+    $(".orderIdDropDownContent>option").css('padding-left','10em')
+}
+$(".orderIdDropDownContent").change(function () {
+    var tempOid=$(".orderIdDropDownContent").val();
+    var tempOD=getOrderInfo(tempOid);
+    console.log(tempOD.OrderDetails)
+    $("#tbl3").empty();
+    for (var i=0;i<tempOD.OrderDetails.length;i++) {
+        console.log(tempOD.OrderDetails[i].code)
+        let row3 = `<tr><td>${tempOD.OrderDetails[i].code}</td><td>${tempOD.OrderDetails[i].name}</td><td>${tempOD.OrderDetails[i].price}</td><td>${tempOD.OrderDetails[i].qty}</td><td>Rs. ${tempOD.OrderDetails[i].totalPrice}</td></tr>`;
+        $("#tbl3").append(row3);
+    }
+})
+function getOrderInfo(tempOid) {
+    for (var i=0;i<order.length;i++){
+        if(tempOid==order[i].oID){
+            return order[i]
+        }
+    }
+
+}
+/*function setSelectedOrderToTable(tempOD) {
+    console.log(tempOD)
+    $("#tbl3").empty();
+    for (var i=0;i<tempOD.length;i++) {
+        console.log(tempOD[i].code)
+        let row3 = `<tr><td>${tempOD[i].code}</td><td>${tempOD[i].name}</td><td>${tempOD[i].price}</td><td>${tempOD[i].qty}</td><td>Rs. ${tempOD[i].totalPrice}</td></tr>`;
+        $("#tbl3").append(row3);
+    }
+}*/
 $(".itemSelection").change(function () {
     setItemDetails();
 })

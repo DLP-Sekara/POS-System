@@ -398,9 +398,7 @@
                 </select></div>
                 <div class="f1 "><label class="form-label">Item</label> <select aria-label=".form-select-lg example"
                                                                                 class="itemSelection f3 form-select form-select-sm"
-                                                                                id="selectItem">
-                    <!--<option selected>Select Item</option>-->
-                </select></div>
+                                                                                id="selectItem"></select></div>
                 <div class="f1 "><label class="form-label">Quantity</label><input aria-label=".form-control-sm example"
                                                                                   class="form-control form-control-sm"
                                                                                   id="Quantity"
@@ -502,25 +500,29 @@
                     <input aria-label=".form-control-sm example" class="itemQty form-control form-control-sm"
                            disabled placeholder="Item Quantity" readonly
                            style="background-color:#ced6e0" type="text"></div>-->
-                <div class="f4 dropDownArea">
+                <div class="f4 ">
                     <button class="OrderRefreshBtn  btn  col-12 "
-                            style="background-color: #0d324d;color: white;position: relative;top: 6px;margin: 5px 0 5px 0"
+                            style="background-color: #0d324d;color: white;position: relative;top: -10px;margin: 5px 0 5px 0"
                             type="button"><img
                             src="https://img.icons8.com/fluency/32/000000/recurring-appointment.png"/>
                         Refresh
                     </button>
-                    <div class="orderIdDropDown dropdown col-12">
+                   <!-- <div class="orderIdDropDown dropdown col-12">
                         <button class="btn btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="true">
                             Check Orders
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-dark col-12" aria-labelledby="dropdownMenuButton2">
-                            <li><a class="dropdown-item active" href="#">Action</a></li>
+                        <ul class="orderIdDropDownContent dropdown-menu dropdown-menu-dark col-12" aria-labelledby="dropdownMenuButton2">
+                           &lt;!&ndash; <li><a class="dropdown-item active" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>&ndash;&gt;
                         </ul>
-                    </div>
+                    </div>-->
+                    <select class="orderIdDropDown orderIdDropDownContent form-select col-12" style="background-color: #495057;color: white;text-align: center;" aria-label="Default select example">
+
+
+                    </select>
                 </div>
             </div>
             <!--3rd col-->
@@ -634,6 +636,7 @@
 
         getCustomerNames();
         getItemNames();
+        setOrderDetailsToDropDown();
     })
 
     $("#logoutIcon").click(function () {
