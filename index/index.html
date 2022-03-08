@@ -129,14 +129,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown" style="">
                 <ul class="navbar-nav" id="ulNAV">
+                    <li class="nav-item nav-link active" id="homeBtn">
+                        <a aria-current="" class="nav-link active" href="#" style="">Home</a>
+                    </li>
                     <li class="nav-item nav-link active" id="customerBTN">
-                        <a aria-current="" class="nav-link active" href="#" style="color: white;">Customers</a>
+                        <a aria-current="" class="nav-link active" href="#" style="">Customers</a>
                     </li>
                     <li class="nav-item nav-link active" id="itemBTN">
-                        <a class="nav-link" href="#" style="color: white;">Items</a>
+                        <a class="nav-link" href="#" style="">Items</a>
                     </li>
                     <li class="nav-item nav-link active" id="orderBTN">
-                        <a class="nav-link" href="#" style="color: white;">Orders</a>
+                        <a class="nav-link" href="#" style="">Orders</a>
                     </li>
 
                 </ul>
@@ -148,7 +151,37 @@
         </div>
 
     </nav>
-
+    <!--=====================================home Page=============================================-->
+    <section id="homePage">
+       <!-- <img src="../assets/img/homePage.jpg" style="height:1080px; width: 1980px" alt="">-->
+        <img src="../assets/img/homePage.jpg" style="" class="homePageImg img-fluid" alt="...">
+        <!--<div style="background-color: red;height: 300px;width: 300px; position: relative;top: 200px;left: 100px" class="customerlbl container">
+            &lt;!&ndash; Content here &ndash;&gt;
+        </div>
+        <div style="background-color: red;height: 300px;width: 300px; position: relative;top: 200px;left: 200px" class="itemLbl container">
+            &lt;!&ndash; Content here &ndash;&gt;
+        </div>
+        <div style="background-color: red;height: 300px;width: 300px; position: relative;top: 200px;left: 300px" class="orderLbl container">
+            &lt;!&ndash; Content here &ndash;&gt;
+        </div>-->
+        <div  class="homePageLbls container">
+            <div  class=" container">
+                <img src="https://img.icons8.com/external-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto/100/000000/external-customer-shopping-and-ecommerce-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto.png"/>
+                <h1>Customers</h1>
+                <h2>275</h2>
+            </div>
+            <div  class=" container">
+                <img src="https://img.icons8.com/material-outlined/100/000000/buy.png"/>
+                <h1>items</h1>
+                <h2>1500</h2>
+            </div>
+            <div  class=" container">
+                <img src="https://img.icons8.com/ios-glyphs/100/000000/purchase-order.png"/>
+                <h1>Orders</h1>
+                <h2>2235</h2>
+            </div>
+        </div>
+    </section>
     <!--=====================================customerPage=============================================-->
     <section id="1stPage">
 
@@ -615,24 +648,80 @@
 
     //using Jquery for basic=============================
 
-    $("#1stPage").css('display', 'block')
+    $("#homePage").css('display', 'block')
+    $("#1stPage").css('display', 'none')
     $("#2ndPage").css('display', 'none')
     $("#3rdPage").css('display', 'none')
+    $("#nav").css('background-color','transparent')
 
     $("#customerBTN").click(function () {
         $("#1stPage").css('display', 'block')
         $("#2ndPage").css('display', 'none')
         $("#3rdPage").css('display', 'none')
+        $("#homePage").css('display', 'none')
+
+        $("#homeBtn>a").css('color','white')
+        $("#homeBtn").css('border-bottom','none')
+        $("#customerBTN>a").css('color','#62a1fe')
+        $("#customerBTN").css('border-bottom','4px solid red')
+        $("#itemBTN>a").css('color','white')
+        $("#itemBTN").css('border-bottom','none')
+        $("#orderBTN>a").css('color','white')
+        $("#orderBTN").css('border-bottom','none')
+        $("#nav").css('background-color','#242C54')
     })
     $("#itemBTN").click(function () {
         $("#1stPage").css('display', 'none')
         $("#2ndPage").css('display', 'block')
         $("#3rdPage").css('display', 'none')
+        $("#homePage").css('display', 'none')
+
+        $("#homeBtn>a").css('color','white')
+        $("#homeBtn").css('border-bottom','none')
+        $("#itemBTN>a").css('color','#62a1fe')
+        $("#itemBTN").css('border-bottom','4px solid red')
+        $("#customerBTN>a").css('color','white')
+        $("#customerBTN").css('border-bottom','none')
+        $("#orderBTN>a").css('color','white')
+        $("#orderBTN").css('border-bottom','none')
+        $("#nav").css('background-color','#242C54')
     })
     $("#orderBTN").click(function () {
         $("#1stPage").css('display', 'none')
         $("#2ndPage").css('display', 'none')
         $("#3rdPage").css('display', 'block')
+        $("#homePage").css('display', 'none')
+
+        $("#homeBtn>a").css('color','white')
+        $("#homeBtn").css('border-bottom','none')
+        $("#orderBTN>a").css('color','#62a1fe')
+        $("#orderBTN").css('border-bottom','4px solid red')
+        $("#itemBTN>a").css('color','white')
+        $("#itemBTN").css('border-bottom','none')
+        $("#customerBTN>a").css('color','white')
+        $("#customerBTN").css('border-bottom','none')
+        $("#nav").css('background-color','#242C54')
+        getCustomerNames();
+        getItemNames();
+        setOrderDetailsToDropDown();
+    })
+    $("#homeBtn").click(function () {
+        $("#1stPage").css('display', 'none')
+        $("#2ndPage").css('display', 'none')
+        $("#3rdPage").css('display', 'none')
+        $("#homePage").css('display', 'block')
+
+        $("#homeBtn>a").css('color','darkblue')
+        $("#homeBtn").css('border-bottom','4px solid red')
+        $("#orderBTN>a").css('color','#8b0000')
+        $("#orderBTN").css('border-bottom','none')
+        $("#itemBTN>a").css('color','#8b0000')
+        $("#itemBTN").css('border-bottom','none')
+        $("#customerBTN>a").css('color','#8b0000')
+        $("#customerBTN").css('border-bottom','none')
+
+        $("#nav").css('background-color','transparent')
+
 
         getCustomerNames();
         getItemNames();
