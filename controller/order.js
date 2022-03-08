@@ -226,10 +226,9 @@ function setOrderDetailsToDropDown() {
 $(".orderIdDropDownContent").change(function () {
     var tempOid=$(".orderIdDropDownContent").val();
     var tempOD=getOrderInfo(tempOid);
-    console.log(tempOD.OrderDetails)
     $("#tbl3").empty();
+    $("#selectCustomer").val(tempOD.custName);
     for (var i=0;i<tempOD.OrderDetails.length;i++) {
-        console.log(tempOD.OrderDetails[i].code)
         let row3 = `<tr><td>${tempOD.OrderDetails[i].code}</td><td>${tempOD.OrderDetails[i].name}</td><td>${tempOD.OrderDetails[i].price}</td><td>${tempOD.OrderDetails[i].qty}</td><td>Rs. ${tempOD.OrderDetails[i].totalPrice}</td></tr>`;
         $("#tbl3").append(row3);
     }
@@ -326,7 +325,9 @@ function clearField() {
 
 $(".txtCash").keyup(function () {
     if (checkValidation()) {
-        $(".purchaseBtn").attr('disabled', false)
+        if(totalLbl!=0) {
+            $(".purchaseBtn").attr('disabled', false)
+        }
     }else{
         $(".purchaseBtn").attr('disabled', true)
     }
