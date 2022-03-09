@@ -121,9 +121,9 @@
     <nav class="navbar navbar-expand-lg navbar-light container-fluid fixed-top shadow-lg" id="nav"
          style="background-color: #161B36;">
         <div class="container-fluid ">
-            <a class="navbar-brand" href="#" style="color: #E74C3C; font-weight: bold">DSD POS System</a>
+            <a class="logo navbar-brand" href="#" style="color: #E74C3C; font-weight: bold">DSD POS System</a>
             <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
-                    class="navbar-toggler"
+                    class="collapsBtn navbar-toggler"
                     data-bs-target="#navbarNavDropdown" data-bs-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -679,6 +679,7 @@
         $("#orderBTN>a").css('color','white')
         $("#orderBTN").css('border-bottom','none')
         $("#nav").css('background-color','#242C54')
+        $("#navbarNavDropdown").css('background-color','#242C54')
     })
     $("#itemBTN").click(function () {
         $("#1stPage").css('display', 'none')

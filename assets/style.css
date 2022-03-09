@@ -241,6 +241,16 @@ right: 0;
     top: -30px;
 }
 @media all and  (max-device-width: 1024px) {
+    #logoutIcon{
+        display: none;
+    }
+    .collapsBtn{
+        position: relative;
+        left: -70px;
+    }
+    .logo{
+        font-size: 17px;
+    }
     #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
         top: 130px;
     }
@@ -265,5 +275,23 @@ right: 0;
     }
     .dateLbl{
         display: none;
+    }
+    .homePageLbls{
+        height: 300px;
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        top: 400px;
+        left: -32px;
+        position: relative;
+    }
+    .homePageLbls>div {
+        margin-top: 20px;
+    }
+    .mainSlider{
+        width: 320px;
+    }
+    .homePageImg{
+        height: 190%;
     }
 }
