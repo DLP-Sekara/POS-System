@@ -16,12 +16,71 @@ right: 0;
     margin: auto;
     top: 80px;
 }
+.base{
+    position: relative;
+}
+.mainSlider{
+    position: absolute;
+    left: -50px;
+    right: 0;
+    top: -300px;
+    bottom: 0;
+    margin: auto;
+    height: 300px;
+    width: 500px;
+    overflow: hidden;
+}
+.slider{
+    position: relative;
+    height: 100%;
+    width: 400%;
+    display: flex;
+    animation-name: animate;
+    animation-duration: 10s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+@keyframes animate {
+    0%,20%{
+        transform: translateX(0%);
+    }25%,45%{
+         transform: translateX(-25%);
+     }50%,70%{
+          transform: translateX(-50%);
+      }75%,100%{
+           transform: translateX(-75%);
+       }
+}
+.slider>div{
+    width: 100%;
+}
+.slider>div:nth-child(1){
+    background: url("img/1.png");
+    background-size: cover;
+    position: center;
+}
+.slider>div:nth-child(2){
+    background: url("img/2.png");
+    background-size: cover;
+    position: center;
+}
+.slider>div:nth-child(3){
+    background: url("img/3.png");
+    background-size: cover;
+    position: center;
+}
+.slider>div:nth-child(4){
+    background: url("img/6.png");
+    background-size: cover;
+    position: center;
+}
+/*================*/
 .homePageLbls{
     height: 300px;
     width: 1200px;
     display: flex;
     flex-direction: row;
-    top: 375px;
+    top: 400px;
     left: -32px;
     position: relative;
 }
