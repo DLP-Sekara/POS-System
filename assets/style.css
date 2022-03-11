@@ -294,4 +294,7 @@ right: 0;
     .homePageImg{
         height: 190%;
     }
+    #navbarNavDropdown{
+        background-color: #242C54;
+    }
 }

@@ -119,7 +119,7 @@
 <main class="container-fluid">
     <!--    nav   -->
     <nav class="navbar navbar-expand-lg navbar-light container-fluid fixed-top shadow-lg" id="nav"
-         style="background-color: #161B36;">
+         style="">
         <div class="container-fluid ">
             <a class="logo navbar-brand" href="#" style="color: #E74C3C; font-weight: bold">DSD POS System</a>
             <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
@@ -639,24 +639,7 @@
 
 
 <script>
-    // raw javaScript======================
-    // document.getElementById("customerBTN").addEventListener("click", function () {
-    //     document.getElementById("1stPage").style.display = "block";
-    //     document.getElementById("2ndPage").style.display = "none";
-    //     document.getElementById("3rdPage").style.display = "none";
-    // })
-    // document.getElementById("itemBTN").addEventListener("click", function () {
-    //     document.getElementById("1stPage").style.display = "none";
-    //     document.getElementById("2ndPage").style.display = "block";
-    //     document.getElementById("3rdPage").style.display = "none";
-    // })
-    // document.getElementById("orderBTN").addEventListener("click", function () {
-    //     document.getElementById("1stPage").style.display = "none";
-    //     document.getElementById("2ndPage").style.display = "none";
-    //     document.getElementById("3rdPage").style.display = "block";
-    // })
 
-    //using Jquery for basic=============================
 
     $("#homePage").css('display', 'block')
     $("#1stPage").css('display', 'none')
@@ -679,7 +662,7 @@
         $("#orderBTN>a").css('color','white')
         $("#orderBTN").css('border-bottom','none')
         $("#nav").css('background-color','#242C54')
-        $("#navbarNavDropdown").css('background-color','#242C54')
+
     })
     $("#itemBTN").click(function () {
         $("#1stPage").css('display', 'none')

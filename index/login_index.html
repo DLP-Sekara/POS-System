@@ -79,14 +79,19 @@
         </div>
     </div>
 </main>
-
+<script src="../assets/JQuery/jquery-3.6.0.min.js"></script>
 <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
-    document.getElementById("loginBtn").addEventListener("click",function () {
-        location.href="index.html";
-        // document.getElementById("1stPage").style.display="block";
-        // document.getElementById("2ndPage").style.display="none";
-        // document.getElementById("3rdPage").style.display="none";
+    $("#loginBtn").click(function () {
+        //location.href="index.html";
+        //window.location.href="www.google.com"
+        //window.location.replace("www.google.com");
+        //location.href = 'www.google.com';
+        console.log("hello")
+        //$(".login").css('background-color','red');
+        //$(location).attr('href','www.google.com')
+        //$(window).attr('location','www.google.com')
+        $(location).prop('href', 'www.google.com')
     })
 </script>
 </body>
