@@ -21,9 +21,9 @@ right: 0;
 }
 .mainSlider{
     position: absolute;
-    left: -50px;
+    left: 0;
     right: 0;
-    top: -300px;
+    top: -40%;
     bottom: 0;
     margin: auto;
     height: 300px;
@@ -76,11 +76,11 @@ right: 0;
 }
 /*================*/
 .homePageLbls{
-    height: 300px;
+    height: 265px;
     width: 1200px;
     display: flex;
     flex-direction: row;
-    top: 400px;
+    top: 55vh;
     left: -32px;
     position: relative;
 }
