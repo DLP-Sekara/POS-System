@@ -97,7 +97,6 @@ function saveorder() {
                     orderDetail[i].code = itemCode
                     orderDetail[i].name = itemName;
                     orderDetail[i].price = itemPrice;
-                    //var qty=itemQty*1;
                     orderDetail[i].qty = orderDetail[i].qty + itemQty;
                     orderDetail[i].totalPrice = orderDetail[i].totalPrice +totalPrice;
                 }

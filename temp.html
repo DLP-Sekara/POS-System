@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DSD POS</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/fontawesome/css/all.css" rel="stylesheet">
+    <link href="assets/css/fontawesome/css/all.css" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
+    <style>
+        /*#formFrame1, #formFrame2, #formFrame3 {
+            position: relative;
+            margin: auto;
+            top: 80px;
+        }
+
+        #logoutIcon {
+            color: white;
+        !important;
+        }
+
+        .btnFrame {
+            position: relative;
+            margin: auto;
+            top: 100px;
+        / / width: 48.666667 %;
+        }
+
+        !*.saveBtn,.updateBtn{
+            width: 177px;
+        }*!
+        #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
+            position: relative;
+            margin: auto;
+            top: 60px;
+        }
+
+        .dltTxt {
+            color: #161B36;
+            position: relative;
+            top: -20px;
+            font-size: 13px;
+        }
+
+        #tableFrame1, #tableFrame2, #tableFrame3 {
+            position: relative;
+            margin: auto;
+            top: 120px;
+
+        }
+
+        .f1 {
+            padding-top: 20px;
+        }
+
+        .f2 {
+            padding-top: 20px;
+        }
+
+        .btn1, .btn2, .btn3 {
+            margin-top: 10px;
+        }
+
+        .dltBtn {
+            position: relative;
+            top: 35px;
+        }
+
+        .f3 {
+            margin-top: 20px;
+        }
+
+        .f4 {
+            position: relative;
+            top: -11px;
+            margin-top: 20px;
+        }
+
+        #sampleBTN {
+            color: white;
+        }
+
+        #ulNAV > li {
+            color: white;
+        }
+
+        #ulNAV > li:hover {
+            cursor: pointer;
+        }
+
+        .tbl > tr:hover {
+            cursor: pointer;
+            background-color: #74b9ff;
+        }
+
+        @media all and  (max-device-width: 1024px) {
+            #SearchFormFrame1, #SearchFormFrame2, #SearchFormFrame3 {
+                top: 100px;
+            }
+        }
+
+        @media all and  (max-device-width: 1024px) {
+            .dltTxt {
+                top: 10px;
+            !important;
+            }
+        }
+
+        @media all and  (max-device-width: 1024px) {
+            .dltBtn {
+                top: 10px;
+            }
+        }
+*/
+    </style>
+</head>
+<body>
+<main class="container-fluid">
+    <!--    nav   -->
+    <nav class="navbar navbar-expand-lg navbar-light container-fluid fixed-top shadow-lg" id="nav"
+         style="">
+        <div class="container-fluid ">
+            <a class="logo navbar-brand" href="#" style="color: #E74C3C; font-weight: bold">DSD POS System</a>
+            <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
+                    class="collapsBtn navbar-toggler"
+                    data-bs-target="#navbarNavDropdown" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown" style="">
+                <ul class="navbar-nav" id="ulNAV">
+                    <li class="nav-item nav-link active" id="homeBtn">
+                        <a aria-current="" class="nav-link active" href="#" style="">Home</a>
+                    </li>
+                    <li class="nav-item nav-link active" id="customerBTN">
+                        <a aria-current="" class="nav-link active" href="#" style="">Customers</a>
+                    </li>
+                    <li class="nav-item nav-link active" id="itemBTN">
+                        <a class="nav-link" href="#" style="">Items</a>
+                    </li>
+                    <li class="nav-item nav-link active" id="orderBTN">
+                        <a class="nav-link" href="#" style="">Orders</a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <h6 class="dateLbl" style="color: white">222</h6>
+
+            <i class="fas fa-power-off" id="logoutIcon" style="cursor: pointer"></i>
+        </div>
+
+    </nav>
+
+
+
+    <section id="homePage">
+        <!-- <img src="../assets/img/homePage.jpg" style="height:1080px; width: 1980px" alt="">-->
+        <img src="assets/img/homePage.jpg" style="" class="homePageImg img-fluid" alt="...">
+    </section>
+</main>
+<script src="assets/JQuery/jquery-3.6.0.min.js"></script>
+
+<script src="db/db.js"></script>
+
+<!--<script src="model/customerModel.js"></script>
+<script src="model/itemModel.js"></script>
+<script src="model/orderModel.js"></script>
+<script src="model/orderDetails.js"></script>
+
+<script src="controller/customer.js"></script>
+<script src="controller/item.js"></script>
+<script src="controller/order.js"></script>-->
+
+
+<script>
+
+
+    $("#homePage").css('display', 'block')
+    $("#1stPage").css('display', 'none')
+    $("#2ndPage").css('display', 'none')
+    $("#3rdPage").css('display', 'none')
+    $("#nav").css('background-color','transparent')
+
+    $("#customerBTN").click(function () {
+        $("#1stPage").css('display', 'block')
+        $("#2ndPage").css('display', 'none')
+        $("#3rdPage").css('display', 'none')
+        $("#homePage").css('display', 'none')
+
+        $("#homeBtn>a").css('color','white')
+        $("#homeBtn").css('border-bottom','none')
+        $("#customerBTN>a").css('color','#62a1fe')
+        $("#customerBTN").css('border-bottom','4px solid red')
+        $("#itemBTN>a").css('color','white')
+        $("#itemBTN").css('border-bottom','none')
+        $("#orderBTN>a").css('color','white')
+        $("#orderBTN").css('border-bottom','none')
+        $("#nav").css('background-color','#242C54')
+
+    })
+    $("#itemBTN").click(function () {
+        $("#1stPage").css('display', 'none')
+        $("#2ndPage").css('display', 'block')
+        $("#3rdPage").css('display', 'none')
+        $("#homePage").css('display', 'none')
+
+        $("#homeBtn>a").css('color','white')
+        $("#homeBtn").css('border-bottom','none')
+        $("#itemBTN>a").css('color','#62a1fe')
+        $("#itemBTN").css('border-bottom','4px solid red')
+        $("#customerBTN>a").css('color','white')
+        $("#customerBTN").css('border-bottom','none')
+        $("#orderBTN>a").css('color','white')
+        $("#orderBTN").css('border-bottom','none')
+        $("#nav").css('background-color','#242C54')
+    })
+    $("#orderBTN").click(function () {
+        $("#1stPage").css('display', 'none')
+        $("#2ndPage").css('display', 'none')
+        $("#3rdPage").css('display', 'block')
+        $("#homePage").css('display', 'none')
+
+        $("#homeBtn>a").css('color','white')
+        $("#homeBtn").css('border-bottom','none')
+        $("#orderBTN>a").css('color','#62a1fe')
+        $("#orderBTN").css('border-bottom','4px solid red')
+        $("#itemBTN>a").css('color','white')
+        $("#itemBTN").css('border-bottom','none')
+        $("#customerBTN>a").css('color','white')
+        $("#customerBTN").css('border-bottom','none')
+        $("#nav").css('background-color','#242C54')
+        getCustomerNames();
+        getItemNames();
+        setOrderDetailsToDropDown();
+    })
+    $("#homeBtn").click(function () {
+        $("#1stPage").css('display', 'none')
+        $("#2ndPage").css('display', 'none')
+        $("#3rdPage").css('display', 'none')
+        $("#homePage").css('display', 'block')
+
+        $("#homeBtn>a").css('color','darkblue')
+        $("#homeBtn").css('border-bottom','4px solid red')
+        $("#orderBTN>a").css('color','#8b0000')
+        $("#orderBTN").css('border-bottom','none')
+        $("#itemBTN>a").css('color','#8b0000')
+        $("#itemBTN").css('border-bottom','none')
+        $("#customerBTN>a").css('color','#8b0000')
+        $("#customerBTN").css('border-bottom','none')
+
+        $("#nav").css('background-color','transparent')
+
+
+        getCustomerNames();
+        getItemNames();
+        setOrderDetailsToDropDown();
+    })
+
+    $("#logoutIcon").click(function () {
+        window.location.href="index.html"
+    })
+
+    $(".dltTxt").attr('disabled', true);
+    $(".txtOrderId").attr('disabled', true);
+    $(".txtBalance").attr('disabled', true);
+
+    $(".itemCode,.itemName,.itemPrice,.itemQty").attr('disabled', true);
+
+    $("#totalpriceLbl").text("0000.00")
+    $("#subTotalpriceLbl").text("0000.00")
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = dd + '.' + mm + '.' + yyyy;
+    $(".dateLbl").text(today);
+</script>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
